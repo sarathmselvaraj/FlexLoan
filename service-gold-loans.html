@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asset & Gold Backed Loans — FlexiLoan</title>
+  <meta name="description" content="Instant liquidity backed by physical gold bullion assets starting at 7.50% p.a. Zero income proof required, same-day appraisal, and 100% insured bank vault storage.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    (function() {
+      if (localStorage.getItem('rtl') === 'true') {
+        document.documentElement.setAttribute('dir', 'rtl');
+      }
+    })();
+  </script>
+</head>
+<body class="bg-[var(--bg-base)] text-[var(--text-secondary)] transition-colors duration-300">
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[var(--accent-magenta)] via-[var(--accent-orange)] to-[var(--accent-gold)] flex items-center justify-center shadow-lg shadow-pink-500/20">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <span class="font-heading font-extrabold text-2xl tracking-tight text-[var(--text-primary)]">
+            Flexi<span class="gradient-text">Loan</span>
+          </span>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-4 xl:gap-6 font-heading font-medium text-sm">
+          <div class="relative group nav-dropdown-wrapper">
+            <button type="button" class="nav-dropdown-toggle flex items-center gap-1.5 py-2 text-[var(--text-secondary)] hover:text-[var(--accent-gold)] transition-colors focus:outline-none" aria-expanded="false">
+              <span>Home</span>
+              <svg class="w-4 h-4 transition-transform duration-200 nav-dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="nav-dropdown-menu absolute left-0 top-full pt-2 w-64 opacity-0 invisible transition-all duration-200 transform translate-y-2 z-50">
+              <div class="bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
+                <a href="index.html" class="block px-3.5 py-2.5 rounded-xl hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-medium transition-colors">
+                  <div class="text-sm font-semibold leading-tight text-[var(--text-primary)]">Smart Loan Comparison</div>
+                  <div class="text-[11px] text-[var(--text-muted)] font-normal mt-0.5">Compare Rates & Apply</div>
+                </a>
+                <a href="home-2.html" class="block px-3.5 py-2.5 rounded-xl hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-medium transition-colors">
+                  <div class="text-sm font-semibold leading-tight text-[var(--text-primary)]">Agency Advisory</div>
+                  <div class="text-[11px] text-[var(--text-muted)] font-normal mt-0.5">Corporate Debt & Capital</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="services.html" class="text-[var(--accent-gold)] font-bold transition-colors">Services</a>
+          <a href="calculator.html" class="hover:text-[var(--accent-gold)] transition-colors">EMI Calculator</a>
+          <a href="about.html" class="hover:text-[var(--accent-gold)] transition-colors">About Us</a>
+          <a href="pricing.html" class="hover:text-[var(--accent-gold)] transition-colors">Pricing</a>
+          <a href="blog.html" class="hover:text-[var(--accent-gold)] transition-colors">Blog</a>
+          <a href="contact.html" class="hover:text-[var(--accent-gold)] transition-colors">Contact</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center gap-2.5 xl:gap-3.5 shrink-0">
+          <!-- RTL / LTR Toggle -->
+          <div class="rtl-toggle inline-flex items-center p-0.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] text-[10px] font-extrabold tracking-wider select-none shrink-0 cursor-pointer hover:border-[var(--accent-gold)]/60 transition-all shadow-sm" title="Switch Text Direction (LTR / RTL)">
+            <span class="ltr-badge px-2 py-0.5 rounded-full transition-all duration-200 bg-[var(--accent-gold)] text-black font-extrabold shadow-sm">LTR</span>
+            <span class="rtl-badge px-2 py-0.5 rounded-full transition-all duration-200 text-[var(--text-muted)] hover:text-[var(--text-primary)] font-normal">RTL</span>
+          </div>
+
+          <button class="theme-toggle p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-all">
+            <span class="theme-toggle-icon"></span>
+          </button>
+          <a href="login.html" class="text-sm font-semibold hover:text-[var(--accent-gold)] transition-colors">Login</a>
+          <a href="register.html" class="text-sm font-semibold hover:text-[var(--accent-gold)] transition-colors">Sign Up</a>
+          <a href="contact.html?service=gold" class="btn-pill-outline text-xs px-4 py-2">Apply Gold Loan</a>
+        </div>
+
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-xl border border-[var(--border-color)] text-[var(--text-primary)]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO BREADCRUMB HEADER ================= -->
+  <section class="relative pt-12 pb-20 overflow-hidden border-b border-[var(--border-color)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="flex items-center gap-2 text-xs font-semibold text-[var(--accent-gold)] mb-4">
+        <a href="index.html" class="hover:underline">Home</a>
+        <span>/</span>
+        <a href="services.html" class="hover:underline">Services</a>
+        <span>/</span>
+        <span class="text-[var(--text-primary)]">Asset & Gold Backed Credit</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
+          <span class="badge-pill">🪙 Insured Bullion Vault Credit</span>
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-[var(--text-primary)] leading-tight">
+            Asset & Physical Gold <span class="gradient-text">Vault Credit</span>
+          </h1>
+          <p class="text-base text-[var(--text-secondary)] max-w-2xl">
+            Unlock instant liquidity against physical gold, bullion, or treasury assets. Zero income proof required, same-day appraisal, and 100% insured bank vault security.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="calculator.html?amount=15000&rate=7.5&years=2" class="btn-pill-solid">
+              Calculate Gold EMI
+            </a>
+            <a href="contact.html?service=gold" class="btn-pill-outline">Book Vault Appraisal</a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="glow-card p-6 space-y-4 border border-[var(--border-color)] rounded-2xl bg-[var(--bg-surface)]">
+            <div class="flex justify-between items-center pb-3 border-b border-white/10">
+              <span class="text-xs font-semibold text-[var(--text-muted)]">Lowest Rate</span>
+              <span class="text-lg font-bold text-emerald-400">7.50% - 8.50% p.a.</span>
+            </div>
+            <div class="flex justify-between items-center pb-3 border-b border-white/10">
+              <span class="text-xs font-semibold text-[var(--text-muted)]">Appraisal Time</span>
+              <span class="text-sm font-bold text-[var(--text-primary)]">30 Minutes</span>
+            </div>
+            <div class="flex justify-between items-center pb-3 border-b border-white/10">
+              <span class="text-xs font-semibold text-[var(--text-muted)]">Income Proof</span>
+              <span class="text-sm font-bold text-[var(--text-primary)]">Not Required</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-semibold text-[var(--text-muted)]">Security Level</span>
+              <span class="text-xs font-extrabold text-emerald-400 px-2.5 py-1 rounded-full bg-emerald-500/10">100% Bank Insured</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[var(--bg-surface)] border-t border-[var(--border-color)] py-12 text-center text-xs text-[var(--text-muted)] space-y-4">
+    <p>© 2026 FlexiLoan Financial Services. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!-- Floating Mobile CTA -->
+  <a href="contact.html" class="mobile-float-cta btn-pill-solid justify-center text-sm font-bold py-3.5 shadow-2xl">
+    📞 Free Loan Consultation
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  </a>
+</body>
+</html>

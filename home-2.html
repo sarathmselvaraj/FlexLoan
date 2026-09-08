@@ -1,0 +1,884 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlexiLoan — Smart Loan Comparison & Advisory Services</title>
+  <meta name="description" content="Corporate capital advisory, M&A structuring, debt syndication, commercial real estate financing, and institutional wealth management.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Theme CSS -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    (function() {
+      if (localStorage.getItem('rtl') === 'true') {
+        document.documentElement.setAttribute('dir', 'rtl');
+      }
+    })();
+  </script>
+</head>
+<body class="bg-[var(--bg-base)] text-[var(--text-secondary)] transition-colors duration-300">
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Left Logo Mark & Brand -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[var(--accent-magenta)] via-[var(--accent-orange)] to-[var(--accent-gold)] flex items-center justify-center shadow-lg shadow-pink-500/20">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <span class="font-heading font-extrabold text-2xl tracking-tight text-[var(--text-primary)]">
+            Flexi<span class="gradient-text">Loan</span>
+          </span>
+        </a>
+
+        <!-- Center Nav Links -->
+        <nav class="hidden lg:flex items-center gap-4 xl:gap-6 font-heading font-medium text-sm">
+          <!-- Home Dropdown -->
+          <div class="relative group nav-dropdown-wrapper">
+            <button type="button" class="nav-dropdown-toggle flex items-center gap-1.5 py-2 text-[var(--accent-gold)] font-bold transition-colors focus:outline-none" aria-expanded="false">
+              <span>Home</span>
+              <svg class="w-4 h-4 transition-transform duration-200 nav-dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="nav-dropdown-menu absolute left-0 top-full pt-2 w-64 opacity-0 invisible transition-all duration-200 transform translate-y-2 z-50">
+              <div class="bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
+                <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-medium transition-colors">
+                  <div class="w-8 h-8 rounded-lg bg-[var(--border-color)] text-[var(--text-muted)] flex items-center justify-center font-bold text-xs shrink-0">01</div>
+                  <div>
+                    <div class="text-sm font-semibold leading-tight text-[var(--text-primary)]">Smart Loan Comparison</div>
+                    <div class="text-[11px] text-[var(--text-muted)] font-normal">Personal & Home Financing</div>
+                  </div>
+                </a>
+                <a href="home-2.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-[var(--accent-gold)]/10 text-[var(--accent-gold)] font-bold transition-colors">
+                  <div class="w-8 h-8 rounded-lg bg-[var(--accent-gold)]/20 text-[var(--accent-gold)] flex items-center justify-center font-bold text-xs shrink-0">02</div>
+                  <div>
+                    <div class="text-sm font-semibold leading-tight">Agency Advisory</div>
+                    <div class="text-[11px] text-[var(--text-muted)] font-normal">Corporate Debt & Capital</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="services.html" class="hover:text-[var(--accent-gold)] transition-colors">Services</a>
+          <a href="calculator.html" class="hover:text-[var(--accent-gold)] transition-colors">EMI Calculator</a>
+          <a href="about.html" class="hover:text-[var(--accent-gold)] transition-colors">About Us</a>
+          <a href="pricing.html" class="hover:text-[var(--accent-gold)] transition-colors">Pricing</a>
+          <a href="blog.html" class="hover:text-[var(--accent-gold)] transition-colors">Blog</a>
+          <a href="contact.html" class="hover:text-[var(--accent-gold)] transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right Side Controls -->
+        <div class="hidden lg:flex items-center gap-2.5 xl:gap-3.5 shrink-0">
+          <!-- RTL / LTR Toggle -->
+          <div class="rtl-toggle inline-flex items-center p-0.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] text-[10px] font-extrabold tracking-wider select-none shrink-0 cursor-pointer hover:border-[var(--accent-gold)]/60 transition-all shadow-sm" title="Switch Text Direction (LTR / RTL)">
+            <span class="ltr-badge px-2 py-0.5 rounded-full transition-all duration-200 bg-[var(--accent-gold)] text-black font-extrabold shadow-sm">LTR</span>
+            <span class="rtl-badge px-2 py-0.5 rounded-full transition-all duration-200 text-[var(--text-muted)] hover:text-[var(--text-primary)] font-normal">RTL</span>
+          </div>
+
+          <!-- Theme Switcher -->
+          <button class="theme-toggle p-2.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-all" title="Toggle Dark/Light Mode">
+            <span class="theme-toggle-icon"></span>
+          </button>
+          <a href="login.html" class="text-sm font-semibold hover:text-[var(--accent-gold)] transition-colors">Client Portal</a>
+          <a href="contact.html" class="btn-pill-solid text-xs px-4 py-2">
+            Book Briefing
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-xl border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--accent-gold)] transition-colors" aria-label="Open navigation menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="lg:hidden mobile-nav-scope">
+    <div id="mobile-nav-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+    <div id="mobile-nav-drawer" class="hidden lg:hidden fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[var(--bg-surface)] border-l border-[var(--border-color)] z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-[var(--border-color)]">
+          <span class="font-heading font-extrabold text-xl text-[var(--text-primary)]">Flexi<span class="gradient-text">Loan</span></span>
+          <button id="mobile-menu-close" class="p-2 rounded-full border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--accent-gold)] transition-colors" aria-label="Close menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-3 mt-6 font-heading font-medium">
+          <!-- Mobile Home Dropdown -->
+          <div class="border-b border-[var(--border-color)]/50 pb-3">
+            <button type="button" class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-[var(--accent-gold)] font-bold text-left">
+              <span>Home</span>
+              <svg class="w-4 h-4 transition-transform duration-200 mobile-dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="mobile-dropdown-menu hidden pl-3 pt-2 space-y-1">
+              <a href="index.html" class="block py-2 px-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] font-medium text-sm">
+                Smart Loan Comparison
+              </a>
+              <a href="home-2.html" class="block py-2 px-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] font-medium text-sm">
+                Agency Advisory
+              </a>
+            </div>
+          </div>
+          <a href="services.html" class="py-2 hover:text-[var(--accent-gold)]">Services</a>
+          <a href="calculator.html" class="py-2 hover:text-[var(--accent-gold)]">EMI Calculator</a>
+          <a href="about.html" class="py-2 hover:text-[var(--accent-gold)]">About Us</a>
+          <a href="pricing.html" class="py-2 hover:text-[var(--accent-gold)]">Pricing & Rates</a>
+          <a href="blog.html" class="py-2 hover:text-[var(--accent-gold)]">Blog & Insights</a>
+          <a href="contact.html" class="py-2 hover:text-[var(--accent-gold)]">Contact Us</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-[var(--border-color)] flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium">Text Direction</span>
+          <div class="rtl-toggle inline-flex items-center p-0.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] text-[10px] font-extrabold tracking-wider select-none shrink-0 cursor-pointer hover:border-[var(--accent-gold)]/60 transition-all shadow-sm" title="Switch Text Direction (LTR / RTL)">
+            <span class="ltr-badge px-2.5 py-0.5 rounded-full transition-all duration-200 bg-[var(--accent-gold)] text-black font-extrabold shadow-sm">LTR</span>
+            <span class="rtl-badge px-2.5 py-0.5 rounded-full transition-all duration-200 text-[var(--text-muted)] hover:text-[var(--text-primary)] font-normal">RTL</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium">Theme Mode</span>
+          <button class="theme-toggle p-2 rounded-full border border-[var(--border-color)]">
+            <span class="theme-toggle-icon"></span>
+          </button>
+        </div>
+        <a href="contact.html" class="btn-pill-solid w-full text-center">Book Corporate Briefing</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= SECTION 1: CORPORATE EXECUTIVE HERO SECTION ================= -->
+  <section class="hero-gradient-wrapper relative py-20 lg:py-28 overflow-hidden border-b border-[var(--border-color)]">
+    <div class="hero-scrim-overlay"></div>
+    <div class="hero-streak-bg"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2">
+            <span class="badge-pill">🏢 Institutional & Corporate Advisory</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text-primary)] leading-[1.1]">
+            Strategic Capital & <span class="gradient-text">Enterprise Financing</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-[var(--text-hero-sub)] max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            We structure bespoke debt syndication, M&A liquidity facilities, and venture capital frameworks for scale-ups and Fortune 500 enterprises.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 text-xs font-semibold text-[var(--text-primary)]">
+            <span class="flex items-center gap-2 bg-[var(--bg-surface-elevated)] px-3.5 py-2 rounded-full border border-[var(--border-color)]">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              ₹4,800 Cr+ Capital Arranged
+            </span>
+            <span class="flex items-center gap-2 bg-[var(--bg-surface-elevated)] px-3.5 py-2 rounded-full border border-[var(--border-color)]">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              48h Term Sheet SLA
+            </span>
+            <span class="flex items-center gap-2 bg-[var(--bg-surface-elevated)] px-3.5 py-2 rounded-full border border-[var(--border-color)]">
+              <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+              Strict Confidentiality Vault
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="contact.html" class="btn-pill-solid px-8 py-3.5 text-base shadow-xl w-full sm:w-auto">
+              Book Executive Consultation
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#solutions" class="btn-pill-secondary px-8 py-3.5 text-base w-full sm:w-auto">
+              Explore Solutions
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Box -->
+        <div class="lg:col-span-5">
+          <div class="glass-card p-6 relative overflow-hidden border border-white/15 shadow-2xl space-y-6">
+            <div class="relative h-60 rounded-2xl overflow-hidden shadow-lg border border-white/10 group">
+              <img src="images/about_office_culture.jpg" alt="Executive Strategy Session" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex items-end p-5">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[var(--accent-gold)] block">Corporate Syndicate Desk</span>
+                  <h4 class="text-sm font-bold text-white">Boardroom Deal Advisory & Capital Structuring</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 text-center">
+              <div class="p-3.5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-color)]">
+                <span class="text-xs text-[var(--text-muted)] block">Avg Deal Size</span>
+                <span class="text-xl font-extrabold text-[var(--accent-gold)]">₹15 Cr - ₹250 Cr</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-[var(--bg-surface-elevated)] border border-[var(--border-color)]">
+                <span class="text-xs text-[var(--text-muted)] block">Execution Window</span>
+                <span class="text-xl font-extrabold text-[var(--text-primary)]">2 - 4 Weeks</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= SECTION 2: GLOBAL INSTITUTIONAL PARTNERS & ACCREDITATION ================= -->
+  <section class="py-14 border-b border-[var(--border-color)] bg-[var(--bg-surface)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <p class="text-center text-xs uppercase font-bold tracking-widest text-[var(--text-muted)] mb-8">
+        Trusted Institutional Syndicate Partners & Capital Providers
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-80 hover:opacity-100 transition-opacity mb-12">
+        <span class="font-heading font-extrabold text-xl sm:text-2xl text-[var(--text-primary)] tracking-wider">GOLDMAN SACHS</span>
+        <span class="font-heading font-extrabold text-xl sm:text-2xl text-[var(--text-primary)] tracking-wider">J.P. MORGAN</span>
+        <span class="font-heading font-extrabold text-xl sm:text-2xl text-[var(--text-primary)] tracking-wider">MORGAN STANLEY</span>
+        <span class="font-heading font-extrabold text-xl sm:text-2xl text-[var(--text-primary)] tracking-wider">BLACKROCK</span>
+        <span class="font-heading font-extrabold text-xl sm:text-2xl text-[var(--text-primary)] tracking-wider">CREDIT SUISSE</span>
+        <span class="font-heading font-extrabold text-xl sm:text-2xl text-[var(--text-primary)] tracking-wider">UBS GLOBAL</span>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-[var(--border-color)]">
+        <div class="text-center p-4">
+          <div class="text-3xl sm:text-4xl font-extrabold counter-number" data-counter="4800" data-prefix="₹" data-suffix=" Cr+" data-decimals="0">₹4,800 Cr+</div>
+          <p class="text-xs text-[var(--text-muted)] mt-1 font-medium">Corporate Debt Syndicated</p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-3xl sm:text-4xl font-extrabold counter-number" data-counter="150" data-suffix="+" data-decimals="0">150+</div>
+          <p class="text-xs text-[var(--text-muted)] mt-1 font-medium">Enterprise Deals Closed</p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-3xl sm:text-4xl font-extrabold counter-number" data-counter="98.2" data-suffix="%" data-decimals="1">98.2%</div>
+          <p class="text-xs text-[var(--text-muted)] mt-1 font-medium">Term Sheet Acceptance</p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-3xl sm:text-4xl font-extrabold counter-number" data-counter="48" data-suffix="h" data-decimals="0">48h</div>
+          <p class="text-xs text-[var(--text-muted)] mt-1 font-medium">Term Sheet Delivery SLA</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= SECTION 3: ENTERPRISE ADVISORY SERVICES (6 SOLUTIONS GRID) ================= -->
+  <section class="py-20 bg-[var(--bg-base)] border-b border-[var(--border-color)]" id="solutions">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="badge-pill">Strategic Corporate Finance</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Institutional Financial Advisory Solutions</h2>
+        <p class="text-[var(--text-secondary)]">Custom corporate finance frameworks engineered for enterprise growth, combine banking security with digital agility.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Solution 1 -->
+        <div class="glass-card p-8 space-y-5 flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform">🤝</div>
+            <h3 class="text-2xl font-bold">M&A Transaction Advisory</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+              Comprehensive buy-side and sell-side transaction structuring, company valuation, and cross-border merger financing.
+            </p>
+            <ul class="space-y-2 text-xs text-[var(--text-secondary)]">
+              <li class="flex items-center gap-2">✓ Valuation & Fairness Opinions</li>
+              <li class="flex items-center gap-2">✓ Leveraged Buyout (LBO) Debt</li>
+              <li class="flex items-center gap-2">✓ Post-Merger Integration Support</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-[var(--border-color)]">
+            <a href="contact.html?type=ma_briefing" class="text-xs font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1">Request M&A Briefing →</a>
+          </div>
+        </div>
+
+        <!-- Solution 2 -->
+        <div class="glass-card p-8 space-y-5 flex flex-col justify-between group border-[var(--accent-gold)]/40">
+          <div class="space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform">🏛️</div>
+            <h3 class="text-2xl font-bold">Enterprise Debt Syndication</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+              Multi-lender credit facilities, revolving credit lines, and senior note issuance tailored for large corporate balance sheets.
+            </p>
+            <ul class="space-y-2 text-xs text-[var(--text-secondary)]">
+              <li class="flex items-center gap-2">✓ Syndicated Credit Lines up to ₹250 Crore</li>
+              <li class="flex items-center gap-2">✓ Covenant-Lite Terms Negotiated</li>
+              <li class="flex items-center gap-2">✓ Dual Currency Tranches</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-[var(--border-color)]">
+            <a href="service-business-loans.html" class="text-xs font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1">Explore Debt Syndication →</a>
+          </div>
+        </div>
+
+        <!-- Solution 3 -->
+        <div class="glass-card p-8 space-y-5 flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform">📊</div>
+            <h3 class="text-2xl font-bold">Institutional Treasury</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+              Liquidity management, yield optimization strategies, and corporate cash flow hedging to safeguard capital reserves.
+            </p>
+            <ul class="space-y-2 text-xs text-[var(--text-secondary)]">
+              <li class="flex items-center gap-2">✓ Yield Enhancement Models</li>
+              <li class="flex items-center gap-2">✓ Interest Rate Swap Hedging</li>
+              <li class="flex items-center gap-2">✓ Working Capital Optimization</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-[var(--border-color)]">
+            <a href="contact.html?type=treasury" class="text-xs font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1">Treasury Advisory →</a>
+          </div>
+        </div>
+
+        <!-- Solution 4 -->
+        <div class="glass-card p-8 space-y-5 flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform">🏢</div>
+            <h3 class="text-2xl font-bold">Commercial Real Estate</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+              Construction financing, mezzanine capital, bridge loans, and portfolio refinancing for commercial real estate developers.
+            </p>
+            <ul class="space-y-2 text-xs text-[var(--text-secondary)]">
+              <li class="flex items-center gap-2">✓ Ground-Up Construction Loans</li>
+              <li class="flex items-center gap-2">✓ Mezzanine & Preferred Equity</li>
+              <li class="flex items-center gap-2">✓ CMBS Refinancing Advisory</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-[var(--border-color)]">
+            <a href="contact.html?type=cre_capital" class="text-xs font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1">Explore CRE Capital →</a>
+          </div>
+        </div>
+
+        <!-- Solution 5 -->
+        <div class="glass-card p-8 space-y-5 flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform">🚀</div>
+            <h3 class="text-2xl font-bold">Venture Debt & Scale-Up</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+              Non-dilutive venture debt facilities, growth credit lines, and runway expansion for Series A to Series D tech companies.
+            </p>
+            <ul class="space-y-2 text-xs text-[var(--text-secondary)]">
+              <li class="flex items-center gap-2">✓ Zero Equity Dilution Models</li>
+              <li class="flex items-center gap-2">✓ ARR-Based Credit Lines</li>
+              <li class="flex items-center gap-2">✓ Extended Interest-Only Windows</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-[var(--border-color)]">
+            <a href="contact.html?type=venture_debt" class="text-xs font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1">Apply for Venture Debt →</a>
+          </div>
+        </div>
+
+        <!-- Solution 6 -->
+        <div class="glass-card p-8 space-y-5 flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform">🛡️</div>
+            <h3 class="text-2xl font-bold">Corporate Risk Hedging</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+              Stress-testing enterprise balance sheets, foreign exchange currency swaps, and commodities risk management frameworks.
+            </p>
+            <ul class="space-y-2 text-xs text-[var(--text-secondary)]">
+              <li class="flex items-center gap-2">✓ FX Spot & Forward Hedging</li>
+              <li class="flex items-center gap-2">✓ Inflation Risk Collars</li>
+              <li class="flex items-center gap-2">✓ Balance Sheet Stress Tests</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-[var(--border-color)]">
+            <a href="contact.html?type=risk_audit" class="text-xs font-bold text-[var(--accent-gold)] hover:underline inline-flex items-center gap-1">Risk Management Audit →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= SECTION 4: INTERACTIVE CORPORATE CAPITAL MATCHER & SIMULATOR ================= -->
+  <section class="py-20 bg-[var(--bg-surface-elevated)] border-b border-[var(--border-color)] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="badge-pill">Proprietary Advisory Tool</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Corporate Capital Matcher Engine</h2>
+        <p class="text-[var(--text-secondary)]">Enter enterprise revenue metrics to simulate optimal capital structure and target interest spreads.</p>
+      </div>
+
+      <div class="glass-card p-6 sm:p-10 border border-white/15">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left Controls -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div class="space-y-2">
+              <div class="flex justify-between items-center text-sm font-semibold">
+                <span>Annual Corporate Revenue (₹ Crore)</span>
+                <span class="text-lg font-bold text-[var(--accent-gold)]" id="corp-rev-val">₹50 Crore</span>
+              </div>
+              <input type="range" id="corp-rev-slider" min="5" max="500" step="5" value="50" class="w-full">
+              <div class="flex justify-between text-[10px] text-[var(--text-muted)]">
+                <span>₹5 Cr</span>
+                <span>₹250 Cr</span>
+                <span>₹500 Cr+</span>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex justify-between items-center text-sm font-semibold">
+                <span>Target Capital Requirement (₹ Crore)</span>
+                <span class="text-lg font-bold text-[var(--accent-gold)]" id="corp-cap-val">₹20 Crore</span>
+              </div>
+              <input type="range" id="corp-cap-slider" min="1" max="100" step="1" value="20" class="w-full">
+              <div class="flex justify-between text-[10px] text-[var(--text-muted)]">
+                <span>₹1 Cr</span>
+                <span>₹50 Cr</span>
+                <span>₹100 Cr+</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="text-xs uppercase font-bold text-[var(--text-muted)] tracking-wider mb-2 block">Preferred Capital Structure</label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" class="corp-struct-btn active py-2.5 px-3 rounded-xl border border-[var(--accent-gold)] bg-[var(--accent-gold)]/10 text-[var(--accent-gold)] text-xs font-bold text-center">Senior Debt</button>
+                <button type="button" class="corp-struct-btn py-2.5 px-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] text-xs font-bold text-center hover:border-[var(--accent-gold)]">Mezzanine</button>
+                <button type="button" class="corp-struct-btn py-2.5 px-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-surface)] text-[var(--text-secondary)] text-xs font-bold text-center hover:border-[var(--accent-gold)]">Venture Line</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Calculation Box -->
+          <div class="lg:col-span-5">
+            <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-surface-elevated)] border border-[var(--border-color)] shadow-2xl space-y-6">
+              
+              <div class="text-center pb-4 border-b border-[var(--border-color)]">
+                <span class="text-xs uppercase font-bold text-[var(--text-muted)] tracking-wider">Estimated Target Spread</span>
+                <div class="text-3xl sm:text-4xl font-extrabold gradient-text mt-2" id="corp-spread-result">SOFR + 3.25%</div>
+                <span class="text-[11px] text-emerald-400 font-medium block mt-1">✓ High Syndicate Market Interest</span>
+              </div>
+
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between items-center">
+                  <span class="text-[var(--text-secondary)]">Estimated Leverage Ratio</span>
+                  <span class="font-bold text-[var(--text-primary)]" id="corp-lev-result">2.4x EBITDA</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-[var(--text-secondary)]">Execution SLA</span>
+                  <span class="font-bold text-[var(--accent-gold)]">14 - 21 Days</span>
+                </div>
+                <div class="flex justify-between items-center pt-2 border-t border-[var(--border-color)]">
+                  <span class="font-bold text-[var(--text-primary)]">Syndicate Banks Target</span>
+                  <span class="font-extrabold text-base text-[var(--text-primary)]">4 Tier-1 Lenders</span>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <a href="contact.html" class="btn-pill-solid w-full text-center text-sm py-3">
+                  Request Confidential Term Sheet →
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= SECTION 5: FEATURED CASE STUDIES & DEAL OUTCOMES ================= -->
+  <section class="py-20 bg-[var(--bg-base)] border-b border-[var(--border-color)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="badge-pill">Proven Deal Execution</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Recent Transaction Outcomes</h2>
+        <p class="text-[var(--text-secondary)]">Explore how our corporate advisory team structured high-value financing solutions for scale-up leaders.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Case 1 -->
+        <div class="glass-card overflow-hidden flex flex-col justify-between group">
+          <div class="p-8 space-y-4">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-wider text-[var(--accent-gold)]">Tech SaaS Scale-Up</span>
+              <span class="badge-pill">₹45 Cr Facility</span>
+            </div>
+            <h3 class="text-2xl font-bold">Non-Dilutive Growth Debt Syndication</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+              Structured a ₹45 Crore ARR-backed credit facility for a Series C SaaS provider, extending cash runway by 36 months without equity dilution.
+            </p>
+          </div>
+          <div class="p-8 pt-0 space-y-3">
+            <div class="grid grid-cols-2 gap-2 text-center p-3 rounded-xl bg-[var(--bg-surface-elevated)] text-xs font-bold">
+              <div>
+                <span class="text-[var(--text-muted)] block text-[10px]">Margin Slash</span>
+                <span class="text-emerald-400">-3.2% Spread</span>
+              </div>
+              <div>
+                <span class="text-[var(--text-primary)]">18 Days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="glass-card overflow-hidden flex flex-col justify-between group">
+          <div class="p-8 space-y-4">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-wider text-[var(--accent-gold)]">Commercial Real Estate</span>
+              <span class="badge-pill">₹120 Cr Facility</span>
+            </div>
+            <h3 class="text-2xl font-bold">Multi-Lender Construction & Refinance</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+              Arranged a ₹120 Crore syndicated ground-up construction and CMBS take-out facility across 5 international banking partners.
+            </p>
+          </div>
+          <div class="p-8 pt-0 space-y-3">
+            <div class="grid grid-cols-2 gap-2 text-center p-3 rounded-xl bg-[var(--bg-surface-elevated)] text-xs font-bold">
+              <div>
+                <span class="text-[var(--text-muted)] block text-[10px]">Syndicate Banks</span>
+                <span class="text-[var(--accent-gold)]">5 Tier-1 Banks</span>
+              </div>
+              <div>
+                <span class="text-[var(--text-muted)] block text-[10px]">LTV Ratio</span>
+                <span class="text-[var(--text-primary)]">78% LTV</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="glass-card overflow-hidden flex flex-col justify-between group">
+          <div class="p-8 space-y-4">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-wider text-[var(--accent-gold)]">Industrial Logistics</span>
+              <span class="badge-pill">₹85 Cr Buyout</span>
+            </div>
+            <h3 class="text-2xl font-bold">Cross-Border M&A Acquisition Debt</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+              Advised an industrial holding group on acquiring a European logistics provider with a dual-currency leveraged buyout structure.
+            </p>
+          </div>
+          <div class="p-8 pt-0 space-y-3">
+            <div class="grid grid-cols-2 gap-2 text-center p-3 rounded-xl bg-[var(--bg-surface-elevated)] text-xs font-bold">
+              <div>
+                <span class="text-[var(--text-muted)] block text-[10px]">Debt Tranche</span>
+                <span class="text-purple-400">Senior + Mezz</span>
+              </div>
+              <div>
+                <span class="text-[var(--text-muted)] block text-[10px]">Execution</span>
+                <span class="text-[var(--text-primary)]">24 Days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= SECTION 6: WHY APEX ADVISORY (6 ADVANTAGE PILLARS) ================= -->
+  <section class="py-20 bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="badge-pill">Institutional Excellence</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Why Corporate Leaders Partner With FlexiLoan</h2>
+        <p class="text-[var(--text-secondary)]">Our advisory desk delivers institutional execution speed with zero conflict of interest.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="p-8 glass-card space-y-3 border border-white/5">
+          <div class="w-12 h-12 rounded-xl bg-[var(--accent-gold)]/20 text-[var(--accent-gold)] flex items-center justify-center font-bold text-xl">⚡</div>
+          <h4 class="text-xl font-bold">48-Hour Term Sheet SLA</h4>
+          <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">We deliver preliminary binding term sheet proposals within 48 hours of initial financial data review.</p>
+        </div>
+
+        <div class="p-8 glass-card space-y-3 border border-white/5">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xl">🔍</div>
+          <h4 class="text-xl font-bold">Proprietary Risk Engine</h4>
+          <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">Our algorithmic desk matches credit covenants against 100+ institutional capital desks instantly.</p>
+        </div>
+
+        <div class="p-8 glass-card space-y-3 border border-white/5">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl">🤝</div>
+          <h4 class="text-xl font-bold">Zero Conflict Mandate</h4>
+          <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">We operate strictly as borrower-side buy advisory, ensuring complete alignment with your corporate goals.</p>
+        </div>
+
+        <div class="p-8 glass-card space-y-3 border border-white/5">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xl">🌐</div>
+          <h4 class="text-xl font-bold">Global Syndicate Network</h4>
+          <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">Direct relationships with private equity funds, sovereign wealth desks, and tier-1 international banks.</p>
+        </div>
+
+        <div class="p-8 glass-card space-y-3 border border-white/5">
+          <div class="w-12 h-12 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-xl">👑</div>
+          <h4 class="text-xl font-bold">Senior Partner Direct Touch</h4>
+          <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">Every transaction is directly managed by a seasoned Managing Director with 15+ years Wall Street experience.</p>
+        </div>
+
+        <div class="p-8 glass-card space-y-3 border border-white/5">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl">🔒</div>
+          <h4 class="text-xl font-bold">Encrypted Data Vault</h4>
+          <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">Bank-grade 256-bit SSL encrypted virtual data room (VDR) to protect your sensitive financial statements.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= SECTION 7: SENIOR EXECUTIVE TEAM SHOWCASE & BOARDROOM CONSULTATION CTA ================= -->
+  <section class="py-20 bg-[var(--bg-base)] border-b border-[var(--border-color)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Executive Partners Grid -->
+      <div>
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="badge-pill">Leadership Excellence</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold">Senior Managing Partners</h2>
+          <p class="text-[var(--text-secondary)]">Industry veterans guiding complex enterprise capital transactions.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <div class="glass-card p-6 text-center space-y-4 group">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 mx-auto flex items-center justify-center font-heading font-extrabold text-2xl text-white shadow-xl group-hover:scale-105 transition-transform">
+              JS
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-[var(--text-primary)]">Jonathan Sterling</h4>
+              <span class="text-xs text-[var(--accent-gold)] font-semibold block">Managing Partner — M&A Structuring</span>
+              <p class="text-xs text-[var(--text-muted)] mt-2">18+ years leading cross-border M&A transactions. Ex-Goldman Sachs Executive Director.</p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 text-center space-y-4 group">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-600 via-teal-600 to-indigo-500 mx-auto flex items-center justify-center font-heading font-extrabold text-2xl text-white shadow-xl group-hover:scale-105 transition-transform">
+              VV
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-[var(--text-primary)]">Victoria Vance</h4>
+              <span class="text-xs text-[var(--accent-gold)] font-semibold block">Partner — Enterprise Debt Syndication</span>
+              <p class="text-xs text-[var(--text-muted)] mt-2">Structured over ₹2,200 Crore in corporate syndicated facilities across North America & Europe.</p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 text-center space-y-4 group">
+            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-amber-600 via-rose-600 to-purple-600 mx-auto flex items-center justify-center font-heading font-extrabold text-2xl text-white shadow-xl group-hover:scale-105 transition-transform">
+              DC
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-[var(--text-primary)]">David Chen</h4>
+              <span class="text-xs text-[var(--accent-gold)] font-semibold block">Partner — Corporate Treasury & CRE</span>
+              <p class="text-xs text-[var(--text-muted)] mt-2">Specialist in commercial real estate capital stacks and corporate interest rate risk hedging.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Executive Boardroom CTA Banner -->
+      <div class="glass-card p-8 sm:p-12 text-center relative overflow-hidden border border-white/20 shadow-2xl bg-gradient-to-r from-[var(--bg-surface-elevated)] via-[var(--bg-surface)] to-[var(--bg-surface-elevated)]">
+        <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+          <span class="badge-pill">Confidential Advisory Briefing</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--text-primary)]">
+            Ready to Structure Your Next <span class="gradient-text">Capital Transaction?</span>
+          </h2>
+          <p class="text-sm sm:text-base text-[var(--text-secondary)]">
+            Schedule a confidential 30-minute advisory session with a senior managing partner to evaluate your capital growth options.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <a href="contact.html" class="btn-pill-solid px-8 py-3.5 text-base shadow-xl w-full sm:w-auto">
+              Schedule Board Consultation
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="pricing.html" class="btn-pill-secondary px-8 py-3.5 text-base w-full sm:w-auto">
+              View Rate Matrix
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[var(--bg-surface)] pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--border-color)]">
+        
+        <!-- Column 1 -->
+        <div class="lg:col-span-4 space-y-5">
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[var(--accent-magenta)] via-[var(--accent-orange)] to-[var(--accent-gold)] flex items-center justify-center font-bold text-white text-lg">₹</div>
+            <span class="font-heading font-extrabold text-2xl text-[var(--text-primary)]">Flexi<span class="gradient-text">Loan</span></span>
+          </a>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed max-w-sm">
+            Institutional capital advisory and debt syndication firm empowering enterprise scale-ups, developers, and corporate borrowers.
+          </p>
+          <div class="flex items-center gap-2.5 pt-2">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Facebook" aria-label="Facebook"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="X / Twitter" aria-label="X / Twitter"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram" aria-label="Instagram"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="lg:col-span-2 space-y-4">
+          <h5 class="font-heading font-bold text-[var(--text-primary)] text-sm tracking-wider uppercase">Explore</h5>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html" class="hover:text-[var(--accent-gold)] transition-colors">Home Landing</a></li>
+            <li><a href="home-2.html" class="hover:text-[var(--accent-gold)] transition-colors">Agency Advisory</a></li>
+            <li><a href="services.html" class="hover:text-[var(--accent-gold)] transition-colors">Loan Services</a></li>
+            <li><a href="calculator.html" class="hover:text-[var(--accent-gold)] transition-colors">EMI Calculator</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="lg:col-span-2 space-y-4">
+          <h5 class="font-heading font-bold text-[var(--text-primary)] text-sm tracking-wider uppercase">Resources</h5>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="documents.html" class="hover:text-[var(--accent-gold)] transition-colors">Documents Required</a></li>
+            <li><a href="pricing.html" class="hover:text-[var(--accent-gold)] transition-colors">Rate Matrix & Pricing</a></li>
+            <li><a href="blog.html" class="hover:text-[var(--accent-gold)] transition-colors">Financial Blog</a></li>
+            <li><a href="about.html" class="hover:text-[var(--accent-gold)] transition-colors">About Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="lg:col-span-4 space-y-4">
+          <h5 class="font-heading font-bold text-[var(--text-primary)] text-sm tracking-wider uppercase">Institutional Intelligence</h5>
+          <p class="text-xs text-[var(--text-muted)]">Subscribe to our weekly CFO market report & central bank rate analysis.</p>
+          <form onsubmit="event.preventDefault(); showToast('Subscribed for market updates!');" class="space-y-3">
+            <div class="relative">
+              <input type="email" required placeholder="Enter corporate email..." class="form-input text-xs pr-28 py-3">
+              <button type="submit" class="absolute right-1.5 top-1.5 bottom-1.5 btn-pill-solid text-xs px-4 py-1">
+                Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+        <div>© 2026 FlexiLoan Inc. All rights reserved.</div>
+        <div class="flex items-center gap-6">
+          <a href="login.html" class="hover:text-[var(--accent-gold)] transition-colors">👤 Client Portal</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Section 4 Corporate Capital Matcher Script
+    document.addEventListener('DOMContentLoaded', () => {
+      const cRev = document.getElementById('corp-rev-slider');
+      const cCap = document.getElementById('corp-cap-slider');
+      const cRevVal = document.getElementById('corp-rev-val');
+      const cCapVal = document.getElementById('corp-cap-val');
+
+      const cSpread = document.getElementById('corp-spread-result');
+      const cLev = document.getElementById('corp-lev-result');
+
+      function updateCorpMatcher() {
+        if (!cRev || !cCap) return;
+        const rev = parseFloat(cRev.value);
+        const cap = parseFloat(cCap.value);
+
+        cRevVal.textContent = '₹' + rev.toLocaleString('en-IN') + ' Crore';
+        cCapVal.textContent = '₹' + cap.toLocaleString('en-IN') + ' Crore';
+
+        const leverage = (cap / (rev * 0.25)).toFixed(1);
+        cLev.textContent = leverage + 'x EBITDA';
+
+        if (leverage < 2.0) {
+          cSpread.textContent = 'SOFR + 2.75%';
+        } else if (leverage < 3.5) {
+          cSpread.textContent = 'SOFR + 3.45%';
+        } else {
+          cSpread.textContent = 'SOFR + 4.25%';
+        }
+      }
+
+      if (cRev && cCap) {
+        cRev.addEventListener('input', updateCorpMatcher);
+        cCap.addEventListener('input', updateCorpMatcher);
+        updateCorpMatcher();
+      }
+
+      const structBtns = document.querySelectorAll('.corp-struct-btn');
+      structBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          structBtns.forEach(b => {
+            b.classList.remove('active', 'border-[var(--accent-gold)]', 'bg-[var(--accent-gold)]/10', 'text-[var(--accent-gold)]');
+            b.classList.add('border-[var(--border-color)]', 'bg-[var(--bg-surface)]', 'text-[var(--text-secondary)]');
+          });
+          btn.classList.add('active', 'border-[var(--accent-gold)]', 'bg-[var(--accent-gold)]/10', 'text-[var(--accent-gold)]');
+          btn.classList.remove('border-[var(--border-color)]', 'bg-[var(--bg-surface)]', 'text-[var(--text-secondary)]');
+          updateCorpMatcher();
+        });
+      });
+    });
+  </script>
+  <!-- Floating Mobile CTA -->
+  <a href="contact.html" class="mobile-float-cta btn-pill-solid justify-center text-sm font-bold py-3.5 shadow-2xl">
+    📞 Free Loan Consultation
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  </a>
+</body>
+</html>

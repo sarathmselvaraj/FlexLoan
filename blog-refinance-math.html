@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Math of Mortgage Refinancing: When Does a 0.50% Drop Make Sense? — FlexiLoan</title>
+  <meta name="description" content="How closing costs, origination points, and remaining tenure dictate whether a balance transfer saves money or creates hidden drag.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>(function() { if (localStorage.getItem('rtl') === 'true') { document.documentElement.setAttribute('dir', 'rtl'); } })();</script>
+</head>
+<body class="bg-[var(--bg-base)] text-[var(--text-secondary)] transition-colors duration-300">
+
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[var(--accent-magenta)] via-[var(--accent-orange)] to-[var(--accent-gold)] flex items-center justify-center shadow-lg shadow-pink-500/20">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <span class="font-heading font-extrabold text-2xl tracking-tight text-[var(--text-primary)]">Flexi<span class="gradient-text">Loan</span></span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-4 xl:gap-6 font-heading font-medium text-sm">
+          <a href="index.html" class="hover:text-[var(--accent-gold)] transition-colors">Home</a>
+          <a href="services.html" class="hover:text-[var(--accent-gold)] transition-colors">Services</a>
+          <a href="calculator.html" class="hover:text-[var(--accent-gold)] transition-colors">EMI Calculator</a>
+          <a href="about.html" class="hover:text-[var(--accent-gold)] transition-colors">About Us</a>
+          <a href="blog.html" class="text-[var(--accent-gold)] font-bold">Blog</a>
+          <a href="contact.html" class="hover:text-[var(--accent-gold)] transition-colors">Contact</a>
+        </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <button class="theme-toggle p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-all"><span class="theme-toggle-icon"></span></button>
+          <a href="contact.html" class="btn-pill-solid text-xs px-4 py-2">Apply Now</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-xl border border-[var(--border-color)] text-[var(--text-primary)]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="lg:hidden mobile-nav-scope">
+    <div id="mobile-nav-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+    <div id="mobile-nav-drawer" class="hidden lg:hidden fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[var(--bg-surface)] border-l border-[var(--border-color)] z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-[var(--border-color)]">
+          <span class="font-heading font-extrabold text-xl text-[var(--text-primary)]">Flexi<span class="gradient-text">Loan</span></span>
+          <button id="mobile-menu-close" class="p-2 rounded-full border border-[var(--border-color)] text-[var(--text-primary)]"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+        </div>
+        <nav class="flex flex-col gap-3 mt-6 font-heading font-medium">
+          <a href="index.html" class="py-2 hover:text-[var(--accent-gold)]">Home</a>
+          <a href="blog.html" class="py-2 text-[var(--accent-gold)] font-bold">Blog</a>
+          <a href="contact.html" class="py-2 hover:text-[var(--accent-gold)]">Contact</a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-[var(--border-color)]"><a href="contact.html" class="btn-pill-solid w-full text-center">Get Free Loan Advice</a></div>
+    </div>
+  </div>
+
+  <section class="relative h-[55vh] min-h-[380px] overflow-hidden">
+    <img src="images/blog_refinance_detail.jpg" alt="Mortgage Refinancing Documents" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-base)] via-black/60 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 max-w-4xl mx-auto px-4 sm:px-6 pb-12">
+      <div class="flex items-center gap-2 text-xs mb-3">
+        <a href="blog.html" class="text-[var(--accent-gold)] hover:underline">← Back to Blog</a>
+        <span class="text-white/40">•</span>
+        <span class="badge-pill text-[10px]">Refinance</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+        The Math of Mortgage Refinancing: When Does a 0.50% Drop Make Sense?
+      </h1>
+      <div class="flex items-center gap-4 mt-4 text-xs text-white/70">
+        <img src="images/team_david_sterling.jpg" alt="David Sterling" class="w-8 h-8 rounded-full object-cover border border-[var(--accent-gold)]">
+        <span>By <strong class="text-white">David Sterling</strong> · Refinancing Specialist</span>
+        <span>•</span><span>6 min read</span><span>•</span><span>Aug 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 py-16 space-y-10">
+
+    <div class="space-y-5">
+      <p class="text-lg text-[var(--text-primary)] font-medium leading-relaxed">Mortgage refinancing — or a balance transfer — is one of the most powerful tools available to homeowners. But it comes with hidden costs that can eat up your savings. The key question isn't "Can I get a lower rate?" — it's "Does the lower rate actually save me money after all costs?"</p>
+      <p class="leading-relaxed">In this guide, we walk through the complete financial calculus of refinancing, including the breakeven period formula that every borrower must understand before signing a balance transfer application.</p>
+    </div>
+
+    <div class="glass-card p-6 border border-[var(--accent-gold)]/40 rounded-2xl space-y-3">
+      <h2 class="text-sm font-bold text-[var(--accent-gold)] uppercase tracking-wider">⚡ Key Takeaways</h2>
+      <ul class="space-y-2 text-sm text-[var(--text-secondary)]">
+        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> A 0.50% rate reduction is worthwhile only if you plan to stay in the loan for 4+ more years.</li>
+        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Processing fees + legal costs typically total ₹30,000–₹80,000 for refinancing.</li>
+        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> The Breakeven Period (BEP) formula tells you exactly when savings overcome upfront costs.</li>
+        <li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Refinancing within the first 5 years of a long-tenure loan delivers maximum benefit.</li>
+      </ul>
+    </div>
+
+    <div class="space-y-5">
+      <h2 class="text-2xl font-extrabold text-[var(--text-primary)]">1. Understanding the True Cost of Refinancing</h2>
+      <p class="leading-relaxed">When you transfer your home loan from Bank A to Bank B, you're essentially taking a new loan to pay off the old one. This triggers a set of one-time costs that most borrowers underestimate:</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] space-y-3">
+          <div class="font-bold text-sm text-[var(--text-primary)]">📋 Typical Refinancing Costs</div>
+          <ul class="text-xs space-y-2 text-[var(--text-secondary)]">
+            <li class="flex justify-between"><span>Processing Fee (new bank)</span><span class="font-bold text-[var(--text-primary)]">0.25–0.5% of loan</span></li>
+            <li class="flex justify-between"><span>Legal Verification Fee</span><span class="font-bold text-[var(--text-primary)]">₹5,000–₹15,000</span></li>
+            <li class="flex justify-between"><span>Valuation Fee</span><span class="font-bold text-[var(--text-primary)]">₹3,000–₹8,000</span></li>
+            <li class="flex justify-between"><span>MOD Stamp Duty</span><span class="font-bold text-[var(--text-primary)]">0.1–0.2% of loan</span></li>
+            <li class="flex justify-between"><span>MODT Registration</span><span class="font-bold text-[var(--text-primary)]">₹2,000–₹10,000</span></li>
+            <li class="border-t border-[var(--border-color)] flex justify-between pt-2 font-bold"><span>Typical Total</span><span class="text-rose-400">₹30,000–₹80,000</span></li>
+          </ul>
+        </div>
+        <div class="p-5 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] space-y-3">
+          <div class="font-bold text-sm text-[var(--text-primary)]">✅ What You Gain</div>
+          <ul class="text-xs space-y-2 text-[var(--text-secondary)]">
+            <li>• Lower monthly EMI (immediate cash flow relief)</li>
+            <li>• Reduced total interest burden over tenure</li>
+            <li>• Ability to re-negotiate tenure (shorter/longer)</li>
+            <li>• Better bank service quality and features</li>
+            <li>• Access to top-up loans at lower rates</li>
+            <li>• Potential credit score improvement opportunity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-5">
+      <h2 class="text-2xl font-extrabold text-[var(--text-primary)]">2. The Breakeven Period Formula</h2>
+      <p class="leading-relaxed">The most important calculation in refinancing is your <strong class="text-[var(--text-primary)]">Breakeven Period (BEP)</strong> — how many months it takes for your monthly savings to recover the upfront refinancing costs.</p>
+      <div class="glass-card p-6 rounded-xl border border-[var(--accent-gold)]/30 text-center space-y-2">
+        <div class="text-xs text-[var(--text-muted)] uppercase tracking-wider">Breakeven Period Formula</div>
+        <div class="text-xl font-extrabold text-[var(--text-primary)]">BEP = Total Costs ÷ Monthly EMI Savings</div>
+        <div class="text-xs text-[var(--text-muted)]">If BEP &lt; Remaining Tenure → Refinancing makes sense</div>
+      </div>
+      <div class="glass-card p-5 rounded-xl border border-[var(--border-color)] space-y-3">
+        <div class="font-bold text-sm text-[var(--text-primary)]">📊 Example Calculation</div>
+        <div class="text-xs text-[var(--text-secondary)] space-y-2">
+          <div class="flex justify-between"><span>Outstanding loan balance</span><span class="font-bold text-[var(--text-primary)]">₹40 Lakh</span></div>
+          <div class="flex justify-between"><span>Current rate → New rate</span><span class="font-bold text-[var(--text-primary)]">9.5% → 9.0%</span></div>
+          <div class="flex justify-between"><span>Remaining tenure</span><span class="font-bold text-[var(--text-primary)]">18 years</span></div>
+          <div class="flex justify-between"><span>Current EMI</span><span class="font-bold text-[var(--text-primary)]">₹39,024</span></div>
+          <div class="flex justify-between"><span>New EMI</span><span class="font-bold text-[var(--text-primary)]">₹37,498</span></div>
+          <div class="flex justify-between"><span>Monthly Savings</span><span class="font-bold text-emerald-400">₹1,526/month</span></div>
+          <div class="flex justify-between"><span>Total Refinancing Costs</span><span class="font-bold text-rose-400">₹52,000</span></div>
+          <div class="flex justify-between border-t border-[var(--border-color)] pt-2 font-bold"><span>Breakeven Period</span><span class="text-[var(--accent-gold)]">34 months (~3 years)</span></div>
+          <div class="flex justify-between"><span>Decision</span><span class="text-emerald-400 font-bold">✅ REFINANCE — 18 yr remaining &gt; 3 yr BEP</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-5">
+      <h2 class="text-2xl font-extrabold text-[var(--text-primary)]">3. The Golden Rules of Refinancing</h2>
+      <img src="images/blog_refinance_wealth.jpg" alt="Refinancing strategy" class="w-full rounded-2xl object-cover h-64">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-xl bg-[var(--bg-surface)] border border-emerald-500/30 space-y-2">
+          <div class="text-emerald-400 font-bold text-sm">✅ Good Times to Refinance</div>
+          <ul class="text-xs space-y-1.5 text-[var(--text-secondary)]">
+            <li>• Rate difference ≥ 0.5% and 10+ years remaining</li>
+            <li>• Your credit score improved significantly</li>
+            <li>• You want to switch fixed → floating (rate cut cycle)</li>
+            <li>• You need a top-up loan at lower rates</li>
+            <li>• Current bank refuses to match competitor rates</li>
+          </ul>
+        </div>
+        <div class="p-5 rounded-xl bg-[var(--bg-surface)] border border-rose-500/30 space-y-2">
+          <div class="text-rose-400 font-bold text-sm">❌ Bad Times to Refinance</div>
+          <ul class="text-xs space-y-1.5 text-[var(--text-secondary)]">
+            <li>• Less than 5 years remaining on tenure</li>
+            <li>• Rate difference &lt; 0.25% (costs exceed savings)</li>
+            <li>• You plan to sell the property within 2 years</li>
+            <li>• Your credit score has dropped recently</li>
+            <li>• You're in a fixed-rate lock-in period with penalties</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <h2 class="text-2xl font-extrabold text-[var(--text-primary)]">4. Pro Tip: Negotiate With Your Existing Bank First</h2>
+      <p class="leading-relaxed">Before applying to a new lender, always request a <strong class="text-[var(--text-primary)]">rate reset with your current bank</strong>. Most banks will match or closely approach a competitor's offer to retain your business — especially if you've been a 3+ year customer with clean repayment history. This costs you nothing (no processing fees, no documentation) and can achieve the same rate reduction instantly.</p>
+      <p class="leading-relaxed">At FlexiLoan, our advisors negotiate directly with banks on your behalf — achieving an average rate reduction of 0.35–0.65% for clients without requiring a full balance transfer in ~60% of cases.</p>
+    </div>
+
+    <div class="glass-card p-6 rounded-2xl border border-[var(--border-color)] flex items-center gap-5">
+      <img src="images/team_david_sterling.jpg" alt="David Sterling" class="w-16 h-16 rounded-full object-cover border-2 border-[var(--accent-gold)] shrink-0">
+      <div>
+        <div class="text-xs text-[var(--accent-gold)] font-bold uppercase tracking-wider mb-1">Author</div>
+        <div class="font-bold text-[var(--text-primary)]">David Sterling</div>
+        <div class="text-xs text-[var(--text-muted)]">Refinancing Specialist — FlexiLoan Advisory. Expert in balance transfer strategy, BEP calculations, and bank negotiation protocols.</div>
+      </div>
+    </div>
+
+    <div class="space-y-5 pt-4 border-t border-[var(--border-color)]">
+      <h3 class="text-xl font-extrabold text-[var(--text-primary)]">Related Articles</h3>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a href="blog-fixed-vs-floating.html" class="glass-card p-4 rounded-xl border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors group">
+          <div class="text-[10px] text-emerald-400 font-bold mb-1">MORTGAGES</div>
+          <div class="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-gold)] transition-colors leading-snug">Fixed vs Floating Interest Rates Guide</div>
+        </a>
+        <a href="blog-prepayment-myths.html" class="glass-card p-4 rounded-xl border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors group">
+          <div class="text-[10px] text-rose-400 font-bold mb-1">POLICY</div>
+          <div class="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-gold)] transition-colors leading-snug">Prepayment Penalty Myths Busted</div>
+        </a>
+        <a href="blog-credit-score.html" class="glass-card p-4 rounded-xl border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors group">
+          <div class="text-[10px] text-emerald-400 font-bold mb-1">CREDIT SCORE</div>
+          <div class="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-gold)] transition-colors leading-snug">The 800+ Club: Save ₹35 Lakh on Your Loan</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="glass-card p-8 rounded-2xl text-center border border-[var(--accent-gold)]/30 space-y-4 bg-gradient-to-br from-[var(--bg-surface)] to-[var(--bg-surface-elevated)]">
+      <h3 class="text-2xl font-extrabold text-[var(--text-primary)]">Should You Refinance Your Loan?</h3>
+      <p class="text-sm text-[var(--text-secondary)]">Our advisors will calculate your exact BEP, compare current lender offers, and negotiate on your behalf — at zero cost to you.</p>
+      <a href="contact.html" class="btn-pill-solid inline-flex items-center gap-2 px-8 py-3">
+        Get Free Refinancing Audit
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+    </div>
+
+  </article>
+
+  <footer class="bg-[var(--bg-surface)] border-t border-[var(--border-color)] pt-8 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[var(--accent-magenta)] via-[var(--accent-orange)] to-[var(--accent-gold)] flex items-center justify-center font-bold text-white text-lg">₹</div>
+          <span class="font-heading font-extrabold text-xl text-[var(--text-primary)]">Flexi<span class="gradient-text">Loan</span></span>
+        </div>
+        <div>© 2026 FlexiLoan Inc. All rights reserved.</div>
+        <div class="flex items-center gap-4">
+          <a href="blog.html" class="hover:text-[var(--accent-gold)] transition-colors">← All Articles</a>
+          <a href="contact.html" class="hover:text-[var(--accent-gold)] transition-colors">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <!-- Floating Mobile CTA -->
+  <a href="contact.html" class="mobile-float-cta btn-pill-solid justify-center text-sm font-bold py-3.5 shadow-2xl">
+    📞 Free Loan Consultation
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+  </a>
+</body>
+</html>
