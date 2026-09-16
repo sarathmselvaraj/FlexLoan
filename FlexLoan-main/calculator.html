@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Interactive EMI &amp; Mortgage Calculator — FlexiLoan</title>
+<meta content="Calculate monthly loan EMI, total interest payable, principal breakdown, and view full monthly amortization schedules with live visual charts." name="description"/>
+<!-- Favicons -->
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="css/theme.css" rel="stylesheet"/>
+<link href="css/responsive.css" rel="stylesheet"/>
+<script>
+    (function() {
+      if (localStorage.getItem('rtl') === 'true') {
+        document.documentElement.setAttribute('dir', 'rtl');
+      }
+    })();
+  </script>
+<link href="css/final-priority-fixes-v1.css" rel="stylesheet"/>
+<link href="css/final-icon-pricing-redesign-v2.css" rel="stylesheet"/>
+</head>
+<body class="bg-[var(--bg-base)] text-[var(--text-secondary)] transition-colors duration-300 qa-page-calculator">
+<header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Left Logo Mark & Brand -->
+<a class="flex items-center gap-3" href="index.html">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[var(--accent-magenta)] via-[var(--accent-orange)] to-[var(--accent-gold)] flex items-center justify-center shadow-lg shadow-pink-500/20">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<span class="font-heading font-extrabold text-2xl tracking-tight text-[var(--text-primary)]">
+            Flexi<span class="gradient-text">Loan</span>
+</span>
+</a>
+<!-- Center Nav Links -->
+<nav class="hidden lg:flex items-center gap-4 xl:gap-6 font-heading font-medium text-sm">
+<!-- Home Dropdown -->
+<div class="relative group nav-dropdown-wrapper">
+<button aria-expanded="false" class="nav-dropdown-toggle flex items-center gap-1.5 py-2 text-[var(--text-secondary)] hover:text-[var(--accent-gold)] transition-colors focus:outline-none" type="button">
+<span>Home</span>
+<svg class="w-4 h-4 transition-transform duration-200 nav-dropdown-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="nav-dropdown-menu absolute left-0 top-full pt-2 w-64 opacity-0 invisible transition-all duration-200 transform translate-y-2 z-50">
+<div class="bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
+<a class="block px-3.5 py-2.5 rounded-xl hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-medium transition-colors" href="index.html">
+<div class="text-sm font-semibold leading-tight text-[var(--text-primary)]">Smart Loan Comparison</div>
+<div class="text-[11px] text-[var(--text-muted)] font-normal mt-0.5">Compare Rates &amp; Apply</div>
+</a>
+<a class="block px-3.5 py-2.5 rounded-xl hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-medium transition-colors" href="home-2.html">
+<div class="text-sm font-semibold leading-tight text-[var(--text-primary)]">Agency Advisory</div>
+<div class="text-[11px] text-[var(--text-muted)] font-normal mt-0.5">Corporate Debt &amp; Capital</div>
+</a>
+</div>
+</div>
+</div>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="services.html">Services</a>
+<a class="text-[var(--accent-gold)] font-bold transition-colors" href="calculator.html">EMI Calculator</a>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="about.html">About Us</a>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="pricing.html">Pricing</a>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="blog.html">Blog</a>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="contact.html">Contact</a>
+</nav>
+<!-- Right Side Controls (Theme Toggle, RTL/LTR Switch, Auth Links, CTA) -->
+<div class="hidden lg:flex items-center gap-2.5 xl:gap-3.5 shrink-0">
+<!-- RTL / LTR Toggle -->
+<div class="rtl-toggle inline-flex items-center p-0.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] text-[10px] font-extrabold tracking-wider select-none shrink-0 cursor-pointer hover:border-[var(--accent-gold)]/60 transition-all shadow-sm" title="Switch Text Direction (LTR / RTL)">
+<span class="ltr-badge px-2 py-0.5 rounded-full transition-all duration-200 bg-[var(--accent-gold)] text-black font-extrabold shadow-sm">LTR</span>
+<span class="rtl-badge px-2 py-0.5 rounded-full transition-all duration-200 text-[var(--text-muted)] hover:text-[var(--text-primary)] font-normal">RTL</span>
+</div>
+<!-- Theme Switcher -->
+<button class="theme-toggle p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-all" title="Toggle Dark/Light Mode" type="button">
+<span class="theme-toggle-icon"></span>
+</button>
+<!-- Auth Links -->
+<a class="text-sm font-semibold hover:text-[var(--accent-gold)] transition-colors" href="login.html">Login</a>
+<a class="text-sm font-semibold hover:text-[var(--accent-gold)] transition-colors" href="register.html">Sign Up</a>
+<!-- Primary CTA Button -->
+<a class="btn-pill-outline text-xs px-4 py-2" href="contact.html">
+            Apply Now
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+</div>
+<!-- Mobile Menu Toggle Button (Visible < 1024px) -->
+<button aria-label="Open navigation menu" class="lg:hidden p-2 rounded-xl border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--accent-gold)] transition-colors" id="mobile-menu-btn" type="button">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- ================= MOBILE NAVIGATION DRAWER (SCOPED < 1024px) ================= -->
+<div class="lg:hidden mobile-nav-scope">
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity" id="mobile-nav-overlay"></div>
+<div class="hidden lg:hidden fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[var(--bg-surface)] border-l border-[var(--border-color)] z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between overflow-y-auto" id="mobile-nav-drawer">
+<div>
+<div class="flex items-center justify-between pb-6 border-b border-[var(--border-color)]">
+<span class="font-heading font-extrabold text-xl text-[var(--text-primary)]">Flexi<span class="gradient-text">Loan</span></span>
+<button aria-label="Close menu" class="p-2 rounded-full border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--accent-gold)] transition-colors" id="mobile-menu-close" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<nav class="flex flex-col gap-3 mt-6 font-heading font-medium">
+<!-- Mobile Home Dropdown -->
+<div class="border-b border-[var(--border-color)]/50 pb-3">
+<button class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-[var(--text-secondary)] hover:text-[var(--accent-gold)] font-medium text-left" type="button">
+<span>Home</span>
+<svg class="w-4 h-4 transition-transform duration-200 mobile-dropdown-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="mobile-dropdown-menu hidden pl-3 pt-2 space-y-1">
+<a class="block py-2 px-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] font-medium text-sm" href="index.html">
+                Smart Loan Comparison
+              </a>
+<a class="block py-2 px-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] font-medium text-sm" href="home-2.html">
+                Agency Advisory
+              </a>
+</div>
+</div>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="services.html">Services</a>
+<a class="py-2 text-[var(--accent-gold)] font-bold" href="calculator.html">EMI Calculator</a>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="about.html">About Us</a>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="pricing.html">Pricing &amp; Rates</a>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="blog.html">Blog &amp; Insights</a>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="contact.html">Contact Us</a>
+<div class="pt-4 border-t border-[var(--border-color)] flex flex-col gap-2">
+<a class="py-2 font-semibold hover:text-[var(--accent-gold)]" href="login.html">Login to Portal</a>
+<a class="py-2 text-[var(--accent-gold)] font-semibold" href="register.html">Create Free Account</a>
+</div>
+</nav>
+</div>
+<div class="pt-6 border-t border-[var(--border-color)] flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Text Direction</span>
+<div class="rtl-toggle inline-flex items-center p-0.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] text-[10px] font-extrabold tracking-wider select-none shrink-0 cursor-pointer hover:border-[var(--accent-gold)]/60 transition-all shadow-sm" title="Switch Text Direction (LTR / RTL)">
+<span class="ltr-badge px-2.5 py-0.5 rounded-full transition-all duration-200 bg-[var(--accent-gold)] text-black font-extrabold shadow-sm">LTR</span>
+<span class="rtl-badge px-2.5 py-0.5 rounded-full transition-all duration-200 text-[var(--text-muted)] hover:text-[var(--text-primary)] font-normal">RTL</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Theme Mode</span>
+<button class="theme-toggle p-2 rounded-full border border-[var(--border-color)]" type="button">
+<span class="theme-toggle-icon"></span>
+</button>
+</div>
+<a class="btn-pill-solid w-full text-center" href="contact.html">Get Free Loan Advice</a>
+<div class="flex items-center justify-center gap-3 pt-2">
+<a aria-label="Facebook" class="social-icon-btn" href="https://facebook.com" rel="noopener noreferrer" target="_blank" title="Facebook"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+<a aria-label="X / Twitter" class="social-icon-btn" href="https://x.com" rel="noopener noreferrer" target="_blank" title="X / Twitter"><svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+<a aria-label="LinkedIn" class="social-icon-btn" href="https://linkedin.com" rel="noopener noreferrer" target="_blank" title="LinkedIn"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+<a aria-label="Instagram" class="social-icon-btn" href="https://instagram.com" rel="noopener noreferrer" target="_blank" title="Instagram"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></a>
+</div>
+<a class="btn-pill-solid w-full text-center" href="contact.html">Get Free Loan Advice</a>
+</div>
+</div>
+</div>
+<!-- ================= SECTION 1: HERO & CALCULATOR WORKSPACE ================= -->
+<section class="py-16 lg:py-24 relative bg-[var(--bg-base)] border-b border-[var(--border-color)]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Page Header -->
+<div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+<span class="badge-pill">⭐ Realtime Financial Tool</span>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-primary)]">
+          Live EMI &amp; <span class="gradient-text">Mortgage Repayment Calculator</span>
+</h1>
+<p class="text-base text-[var(--text-secondary)]">
+          Adjust price, loan amount, interest rate %, and tenure in years to instantly compute monthly installments, total interest, and complete amortization schedules.
+        </p>
+</div>
+<!-- Main Calculator Grid -->
+<div class="grid lg:grid-cols-12 gap-10 items-start">
+<!-- Left Input Controls Panel -->
+<div class="lg:col-span-7 space-y-8 glass-card p-6 sm:p-8 border border-[var(--border-color)]">
+<div class="flex items-center justify-between pb-4 border-b border-[var(--border-color)]">
+<h3 class="text-xl font-bold text-[var(--text-primary)]">Loan Parameters</h3>
+<span class="status-badge flex items-center gap-2 text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+<span class="status-pulse-dot"></span> Realtime Engine Active
+            </span>
+</div>
+<!-- Parameter 1: Price / Loan Amount -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold text-[var(--text-primary)]" for="calc-amount-input">Loan Amount / Price</label>
+<div class="flex items-center gap-1 bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] px-3 py-1.5 rounded-xl">
+<span class="text-sm font-bold text-[var(--accent-gold)]">₹</span>
+<input class="w-32 bg-transparent text-right font-bold text-[var(--text-primary)] focus:outline-none text-sm" id="calc-amount-input" max="50000000" min="50000" step="50000" type="number" value="2500000"/>
+</div>
+</div>
+<input class="custom-range-slider" id="calc-amount-slider" max="10000000" min="100000" step="50000" type="range" value="2500000"/>
+<div class="flex flex-wrap gap-2 pt-1">
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetAmount(500000)" type="button">₹5 Lakh</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetAmount(1000000)" type="button">₹10 Lakh</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetAmount(2500000)" type="button">₹25 Lakh</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetAmount(5000000)" type="button">₹50 Lakh</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetAmount(10000000)" type="button">₹1 Crore</button>
+</div>
+</div>
+<!-- Parameter 2: Annual Interest Rate % -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold text-[var(--text-primary)]" for="calc-rate-input">Interest Rate (% p.a.)</label>
+<div class="flex items-center gap-1 bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] px-3 py-1.5 rounded-xl">
+<input class="w-20 bg-transparent text-right font-bold text-[var(--text-primary)] focus:outline-none text-sm" id="calc-rate-input" max="25" min="1" step="0.1" type="number" value="8.5"/>
+<span class="text-sm font-bold text-[var(--accent-gold)]">%</span>
+</div>
+</div>
+<input class="custom-range-slider" id="calc-rate-slider" max="18.0" min="3.5" step="0.1" type="range" value="8.5"/>
+<div class="flex flex-wrap gap-2 pt-1">
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetRate(6.5)" type="button">6.5%</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetRate(7.9)" type="button">7.9%</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetRate(8.5)" type="button">8.5%</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetRate(10.5)" type="button">10.5%</button>
+</div>
+</div>
+<!-- Parameter 3: Tenure (Years & Months) -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold text-[var(--text-primary)]" for="calc-tenure-input">Loan Tenure (Years)</label>
+<div class="flex items-center gap-2">
+<input class="w-20 bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] px-3 py-1.5 rounded-xl text-right font-bold text-[var(--text-primary)] focus:outline-none text-sm" id="calc-tenure-input" max="30" min="1" step="1" type="number" value="15"/>
+<select class="bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] text-xs font-bold text-[var(--accent-gold)] px-3 py-2 rounded-xl focus:outline-none" id="calc-tenure-type">
+<option selected="" value="years">Years</option>
+<option value="months">Months</option>
+</select>
+</div>
+</div>
+<input class="custom-range-slider" id="calc-tenure-slider" max="30" min="1" step="1" type="range" value="15"/>
+<div class="flex flex-wrap gap-2 pt-1">
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetTenure(5)" type="button">5 Yrs</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetTenure(10)" type="button">10 Yrs</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetTenure(15)" type="button">15 Yrs</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetTenure(20)" type="button">20 Yrs</button>
+<button class="text-xs font-medium px-3 py-1 rounded-lg bg-[var(--bg-surface-hover)] border border-[var(--border-color)] hover:border-[var(--accent-gold)] transition-colors" onclick="setPresetTenure(30)" type="button">30 Yrs</button>
+</div>
+</div>
+<div class="pt-4 flex flex-col sm:flex-row gap-3">
+<a class="btn-pill-solid w-full text-center text-sm py-3" href="contact.html">
+              Apply for Pre-Approval →
+            </a>
+<a class="btn-pill-secondary w-full text-center text-sm py-3" href="services.html">
+              Compare Lender Rates
+            </a>
+</div>
+</div>
+<!-- Right Results Panel -->
+<div class="lg:col-span-5 space-y-6">
+<div class="p-8 rounded-3xl bg-gradient-to-br from-[var(--accent-violet)] via-[var(--accent-magenta)] to-[var(--accent-orange)] text-white shadow-2xl space-y-6 relative overflow-hidden">
+<div class="relative z-10">
+<span class="text-xs uppercase tracking-widest text-white/80 font-bold">Calculated Monthly EMI</span>
+<div class="text-4xl sm:text-5xl font-extrabold font-heading mt-2" id="res-monthly-emi">₹24,628</div>
+<p class="text-xs text-white/70 mt-1">Based on fixed rate calculation. Subject to lender approval.</p>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/20 text-sm relative z-10">
+<div>
+<span class="text-xs text-white/70 block">Principal Amount</span>
+<strong class="text-lg font-bold" id="res-total-principal">₹25,00,000</strong>
+</div>
+<div>
+<span class="text-xs text-white/70 block">Total Interest</span>
+<strong class="text-lg font-bold" id="res-total-interest">₹19,33,088</strong>
+</div>
+<div class="col-span-2 pt-2 border-t border-white/10">
+<span class="text-xs text-white/70 block">Total Amount Payable</span>
+<strong class="text-2xl font-extrabold" id="res-total-payable">₹44,33,088</strong>
+</div>
+</div>
+</div>
+<div class="glass-card p-6 border border-white/10">
+<h4 class="font-bold text-sm text-[var(--text-muted)] uppercase tracking-wider text-center mb-4">Payment Distribution</h4>
+<div class="relative h-64">
+<canvas id="emi-donut-chart"></canvas>
+</div>
+</div>
+</div>
+</div>
+<!-- AMORTIZATION SCHEDULE TABLE -->
+<div class="mt-16 glass-card p-6 sm:p-8 border border-white/10">
+<div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/10">
+<div>
+<h3 class="text-2xl font-bold text-[var(--text-primary)]">Monthly Amortization Schedule</h3>
+<p class="text-xs text-[var(--text-secondary)]">Detailed monthly breakdown of principal repayment versus interest charges.</p>
+</div>
+<button class="btn-pill-secondary text-xs" onclick="window.print()" type="button">🖨️ Print Schedule</button>
+</div>
+<div class="overflow-x-auto mt-6">
+<table class="w-full text-sm text-left">
+<thead>
+<tr class="border-b border-white/10 text-[var(--text-muted)] font-heading uppercase text-xs">
+<th class="py-3 px-4 text-center">Month #</th>
+<th class="py-3 px-4 text-right">Opening Balance</th>
+<th class="py-3 px-4 text-right">Monthly EMI</th>
+<th class="py-3 px-4 text-right">Principal Paid</th>
+<th class="py-3 px-4 text-right">Interest Paid</th>
+<th class="py-3 px-4 text-right">Closing Balance</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5" id="amortization-tbody"></tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- ================= SECTION 4: EMI FORMULA GUIDE ================= -->
+<div class="mt-16 glass-card p-8 border border-[var(--border-color)] grid lg:grid-cols-12 gap-8 items-center bg-[var(--bg-surface-elevated)] shadow-2xl rounded-3xl">
+<div class="lg:col-span-7 space-y-6">
+<span class="badge-pill">Mathematical Transparency</span>
+<h3 class="text-2xl font-bold text-[var(--text-primary)]">How Equated Monthly Installment (EMI) Is Calculated</h3>
+<p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+            EMI is calculated using the standard reducing-balance loan formula: <strong class="text-[var(--accent-gold)]">EMI = [P x R x (1+R)^N] / [(1+R)^N - 1]</strong>, where <strong class="text-[var(--text-primary)]">P</strong> is Principal amount, <strong class="text-[var(--text-primary)]">R</strong> is monthly interest rate, and <strong class="text-[var(--text-primary)]">N</strong> is loan tenure in months.
+          </p>
+<div class="grid md:grid-cols-3 gap-4 pt-4 border-t border-white/10 text-xs">
+<div class="p-3.5 rounded-xl bg-[var(--bg-surface)] space-y-1 border border-[var(--border-color)]">
+<span class="font-bold text-[var(--accent-gold)] block">P = Loan Principal</span>
+<p class="text-[var(--text-muted)] text-[11px]">Total capital borrowed from lender.</p>
+</div>
+<div class="p-3.5 rounded-xl bg-[var(--bg-surface)] space-y-1 border border-[var(--border-color)]">
+<span class="font-bold text-[var(--accent-gold)] block">R = Monthly Rate</span>
+<p class="text-[var(--text-muted)] text-[11px]">Annual rate divided by 12 months.</p>
+</div>
+<div class="p-3.5 rounded-xl bg-[var(--bg-surface)] space-y-1 border border-[var(--border-color)]">
+<span class="font-bold text-[var(--accent-gold)] block">N = Tenure Months</span>
+<p class="text-[var(--text-muted)] text-[11px]">Total monthly installments.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 h-64 rounded-2xl overflow-hidden relative shadow-xl group border border-[var(--border-color)]">
+<img alt="Financial Planner EMI Desk Workspace" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/calculator_desk_setup.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+<span class="text-xs font-bold text-white">📊 Precision Amortization Desk</span>
+</div>
+</div>
+</div>
+<!-- ================= SECTION 5: RATE FORECAST 2026 ================= -->
+<div class="mt-12 glass-card p-8 border border-[var(--border-color)] space-y-6">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div>
+<span class="badge-pill">Market Intelligence</span>
+<h3 class="text-2xl font-bold text-[var(--text-primary)] mt-2">Central Bank Rate Forecast 2026</h3>
+</div>
+<a class="btn-pill-solid text-xs" href="pricing.html">View Live Rate Matrix →</a>
+</div>
+<div class="grid md:grid-cols-3 gap-6 text-xs">
+<div class="p-5 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] space-y-2">
+<span class="text-emerald-400 font-bold block text-sm">Residential Home Rates</span>
+<p class="text-[var(--text-secondary)]">Projected to stabilize between 8.25% and 8.75% following mid-year central bank policy adjustments.</p>
+</div>
+<div class="p-5 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] space-y-2">
+<span class="text-purple-400 font-bold block text-sm">Personal Unsecured Rates</span>
+<p class="text-[var(--text-secondary)]">Highly competitive for borrowers with 750+ credit ratings, starting at 10.50% p.a.</p>
+</div>
+<div class="p-5 rounded-2xl bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] space-y-2">
+<span class="text-pink-400 font-bold block text-sm">Refinancing Window</span>
+<p class="text-[var(--text-secondary)]">Existing home loan borrowers carrying 9.5%+ rates can save up to 1.10% by switching to FlexiLoan advisory.</p>
+</div>
+</div>
+</div>
+<!-- ================= SECTION 6: CALCULATOR FAQS ================= -->
+<div class="mt-12 glass-card p-8 border border-[var(--border-color)] space-y-6" data-accordion-single="">
+<span class="badge-pill">Calculation Help</span>
+<h3 class="text-2xl font-bold text-[var(--text-primary)]">Calculator FAQs</h3>
+<div class="space-y-4">
+<div class="accordion-item active">
+<div class="accordion-header text-sm">
+<span>Why does the interest component decrease each month?</span>
+<span class="text-lg font-bold">+</span>
+</div>
+<div class="accordion-content text-xs">
+              Because interest is calculated on the reducing principal balance. As you pay off principal every month, the outstanding debt shrinks, resulting in a lower interest charge for the next cycle.
+            </div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header text-sm">
+<span>What happens if I make a partial lump-sum prepayment?</span>
+<span class="text-lg font-bold">+</span>
+</div>
+<div class="accordion-content text-xs">
+              Partial prepayments directly reduce your principal balance. You can choose to either shorten your loan tenure (keeping monthly EMI same) or reduce your monthly EMI amount.
+            </div>
+</div>
+</div>
+</div>
+<!-- ================= SECTION 7: CONSULTATION CALLOUT ================= -->
+<div class="mt-12 glass-card p-8 rounded-3xl border border-[var(--border-color)] grid md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-8 space-y-3">
+<span class="badge-pill">Advisory Assistance</span>
+<h3 class="text-2xl font-bold text-[var(--text-primary)]">Need a Custom Structured Loan Schedule?</h3>
+<p class="text-xs text-[var(--text-secondary)]">Our financial advisors can design step-up, step-down, or balloon payment schedules matching your income growth.</p>
+</div>
+<div class="md:col-span-4 flex justify-end">
+<a class="btn-pill-solid w-full text-center" href="contact.html">Talk With an Advisor →</a>
+</div>
+</div>
+
+</section>
+<!-- 4-COLUMN FOOTER (v2) -->
+<footer class="bg-[var(--bg-surface)] border-t border-[var(--border-color)] pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--border-color)]">
+<div class="lg:col-span-4 space-y-5">
+<a class="flex items-center gap-3" href="index.html">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[var(--accent-magenta)] via-[var(--accent-orange)] to-[var(--accent-gold)] flex items-center justify-center font-bold text-white text-lg">₹</div>
+<span class="font-heading font-extrabold text-2xl text-[var(--text-primary)]">Flexi<span class="gradient-text">Loan</span></span>
+</a>
+<p class="text-xs text-[var(--text-muted)] leading-relaxed max-w-sm">
+            A transparent loan advisory helping borrowers compare, calculate, and apply for financing with total confidence.
+          </p>
+<div class="flex items-center gap-2.5 pt-2">
+<a aria-label="Facebook" class="social-icon-btn" href="https://facebook.com" rel="noopener noreferrer" target="_blank" title="Facebook"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+<a aria-label="X / Twitter" class="social-icon-btn" href="https://x.com" rel="noopener noreferrer" target="_blank" title="X / Twitter"><svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+<a aria-label="LinkedIn" class="social-icon-btn" href="https://linkedin.com" rel="noopener noreferrer" target="_blank" title="LinkedIn"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+<a aria-label="Instagram" class="social-icon-btn" href="https://instagram.com" rel="noopener noreferrer" target="_blank" title="Instagram"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></a>
+</div>
+</div>
+<div class="lg:col-span-2 space-y-4">
+<h5 class="font-heading font-bold text-[var(--text-primary)] text-sm uppercase">Explore</h5>
+<ul class="space-y-2.5 text-xs">
+<li><a class="hover:text-[var(--accent-gold)]" href="index.html">Home Landing</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="services.html">Loan Services</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="calculator.html">EMI Calculator</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="about.html">About Us</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2 space-y-4">
+<h5 class="font-heading font-bold text-[var(--text-primary)] text-sm uppercase">Resources</h5>
+<ul class="space-y-2.5 text-xs">
+<li><a class="hover:text-[var(--accent-gold)]" href="documents.html">Documents Required</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="pricing.html">Pricing &amp; Rates</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="blog.html">Financial Blog</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="service-details.html#faqs">Borrower FAQs</a></li>
+</ul>
+</div>
+<div class="lg:col-span-4 space-y-4">
+<h5 class="font-heading font-bold text-[var(--text-primary)] text-sm uppercase">Stay Updated</h5>
+<p class="text-xs text-[var(--text-muted)]">Subscribe to receive rate alerts and capital growth updates.</p>
+<form class="space-y-3" onsubmit="event.preventDefault(); showToast('Subscribed!');">
+<div class="relative">
+<input class="form-input text-xs pr-28 py-3" placeholder="Enter email..." required="" type="email"/>
+<button class="absolute right-1.5 top-1.5 bottom-1.5 btn-pill-solid text-xs px-4 py-1" type="submit">Subscribe</button>
+</div>
+</form>
+</div>
+</div>
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+<div>© 2026 FlexiLoan Inc. All rights reserved.</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-[var(--accent-gold)]" href="login.html">👤 Client Login</a>
+<span class="text-white/20">•</span>
+</div>
+</div>
+</div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/calculator.js"></script>
+<!-- Floating Mobile CTA -->
+<a class="mobile-float-cta btn-pill-solid justify-center text-sm font-bold py-3.5 shadow-2xl" href="contact.html">
+    📞 Free Loan Consultation
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<script src="js/final-priority-fixes-v1.js"></script>
+</body>
+</html>

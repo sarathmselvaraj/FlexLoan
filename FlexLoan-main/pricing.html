@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing &amp; Advisory Tiers — FlexiLoan</title>
+<meta content="Transparent rate matrix and advisory tier options for home loan refinancing, business credit lines, personal advisory, and interactive savings calculator." name="description"/>
+<!-- Favicons -->
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="css/theme.css" rel="stylesheet"/>
+<link href="css/responsive.css" rel="stylesheet"/>
+<script>
+    (function() {
+      if (localStorage.getItem('rtl') === 'true') {
+        document.documentElement.setAttribute('dir', 'rtl');
+      }
+    })();
+  </script>
+<link href="css/final-priority-fixes-v1.css" rel="stylesheet"/>
+<link href="css/final-icon-pricing-redesign-v2.css" rel="stylesheet"/>
+</head>
+<body class="bg-[var(--bg-base)] text-[var(--text-secondary)] transition-colors duration-300 qa-page-pricing">
+<!-- ================= HEADER / NAVBAR ================= -->
+<header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Left Logo Mark & Brand -->
+<a class="flex items-center gap-3" href="index.html">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[var(--accent-magenta)] via-[var(--accent-orange)] to-[var(--accent-gold)] flex items-center justify-center shadow-lg shadow-pink-500/20">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<span class="font-heading font-extrabold text-2xl tracking-tight text-[var(--text-primary)]">
+            Flexi<span class="gradient-text">Loan</span>
+</span>
+</a>
+<!-- Center Nav Links -->
+<nav class="hidden lg:flex items-center gap-4 xl:gap-6 font-heading font-medium text-sm">
+<!-- Home Dropdown -->
+<div class="relative group nav-dropdown-wrapper">
+<button aria-expanded="false" class="nav-dropdown-toggle flex items-center gap-1.5 py-2 text-[var(--text-secondary)] hover:text-[var(--accent-gold)] transition-colors focus:outline-none" type="button">
+<span>Home</span>
+<svg class="w-4 h-4 transition-transform duration-200 nav-dropdown-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="nav-dropdown-menu absolute left-0 top-full pt-2 w-64 opacity-0 invisible transition-all duration-200 transform translate-y-2 z-50">
+<div class="bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
+<a class="block px-3.5 py-2.5 rounded-xl hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-medium transition-colors" href="index.html">
+<div class="text-sm font-semibold leading-tight text-[var(--text-primary)]">Smart Loan Comparison</div>
+<div class="text-[11px] text-[var(--text-muted)] font-normal mt-0.5">Compare Rates &amp; Apply</div>
+</a>
+<a class="block px-3.5 py-2.5 rounded-xl hover:bg-[var(--bg-surface-hover)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-medium transition-colors" href="home-2.html">
+<div class="text-sm font-semibold leading-tight text-[var(--text-primary)]">Agency Advisory</div>
+<div class="text-[11px] text-[var(--text-muted)] font-normal mt-0.5">Corporate Debt &amp; Capital</div>
+</a>
+</div>
+</div>
+</div>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="services.html">Services</a>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="calculator.html">EMI Calculator</a>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="about.html">About Us</a>
+<a class="text-[var(--accent-gold)] font-bold transition-colors" href="pricing.html">Pricing</a>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="blog.html">Blog</a>
+<a class="hover:text-[var(--accent-gold)] transition-colors" href="contact.html">Contact</a>
+</nav>
+<!-- Right Side Controls (Theme Toggle, RTL/LTR Switch, Auth Links, CTA) -->
+<div class="hidden lg:flex items-center gap-2.5 xl:gap-3.5 shrink-0">
+<!-- RTL / LTR Toggle -->
+<div class="rtl-toggle inline-flex items-center p-0.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] text-[10px] font-extrabold tracking-wider select-none shrink-0 cursor-pointer hover:border-[var(--accent-gold)]/60 transition-all shadow-sm" title="Switch Text Direction (LTR / RTL)">
+<span class="ltr-badge px-2 py-0.5 rounded-full transition-all duration-200 bg-[var(--accent-gold)] text-black font-extrabold shadow-sm">LTR</span>
+<span class="rtl-badge px-2 py-0.5 rounded-full transition-all duration-200 text-[var(--text-muted)] hover:text-[var(--text-primary)] font-normal">RTL</span>
+</div>
+<!-- Theme Switcher -->
+<button class="theme-toggle p-2 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] hover:border-[var(--accent-gold)] text-[var(--text-primary)] transition-all" title="Toggle Dark/Light Mode" type="button">
+<span class="theme-toggle-icon"></span>
+</button>
+<a class="text-sm font-semibold hover:text-[var(--accent-gold)] transition-colors" href="login.html">Login</a>
+<a class="text-sm font-semibold hover:text-[var(--accent-gold)] transition-colors" href="register.html">Sign Up</a>
+<a class="btn-pill-outline text-xs px-4 py-2" href="contact.html">Apply Now</a>
+</div>
+<!-- Mobile Menu Toggle Button -->
+<button class="lg:hidden p-2 rounded-xl border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--accent-gold)] transition-colors" id="mobile-menu-btn" type="button">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- ================= MOBILE NAVIGATION DRAWER ================= -->
+<div class="lg:hidden mobile-nav-scope">
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity" id="mobile-nav-overlay"></div>
+<div class="hidden lg:hidden fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[var(--bg-surface)] border-l border-[var(--border-color)] z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between overflow-y-auto" id="mobile-nav-drawer">
+<div>
+<div class="flex items-center justify-between pb-6 border-b border-[var(--border-color)]">
+<span class="font-heading font-extrabold text-xl text-[var(--text-primary)]">Flexi<span class="gradient-text">Loan</span></span>
+<button class="p-2 rounded-full border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--accent-gold)] transition-colors" id="mobile-menu-close" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<nav class="flex flex-col gap-3 mt-6 font-heading font-medium">
+<div class="border-b border-[var(--border-color)]/50 pb-3">
+<button class="mobile-dropdown-btn w-full flex items-center justify-between py-2 text-[var(--text-secondary)] hover:text-[var(--accent-gold)] font-medium text-left" type="button">
+<span>Home</span>
+<svg class="w-4 h-4 transition-transform duration-200 mobile-dropdown-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="mobile-dropdown-menu hidden pl-3 pt-2 space-y-1">
+<a class="block py-2 px-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] font-medium text-sm" href="index.html">
+                Smart Loan Comparison
+              </a>
+<a class="block py-2 px-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] font-medium text-sm" href="home-2.html">
+                Agency Advisory
+              </a>
+</div>
+</div>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="services.html">Services</a>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="calculator.html">EMI Calculator</a>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="about.html">About Us</a>
+<a class="py-2 text-[var(--accent-gold)] font-bold" href="pricing.html">Pricing &amp; Rates</a>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="blog.html">Blog &amp; Insights</a>
+<a class="py-2 hover:text-[var(--accent-gold)]" href="contact.html">Contact Us</a>
+<div class="pt-4 border-t border-[var(--border-color)] flex flex-col gap-2">
+<a class="py-2 font-semibold hover:text-[var(--accent-gold)]" href="login.html">Login to Portal</a>
+<a class="py-2 text-[var(--accent-gold)] font-semibold" href="register.html">Create Free Account</a>
+</div>
+</nav>
+</div>
+<div class="pt-6 border-t border-[var(--border-color)] flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Text Direction</span>
+<div class="rtl-toggle inline-flex items-center p-0.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-surface)] text-[10px] font-extrabold tracking-wider select-none shrink-0 cursor-pointer hover:border-[var(--accent-gold)]/60 transition-all shadow-sm" title="Switch Text Direction (LTR / RTL)">
+<span class="ltr-badge px-2.5 py-0.5 rounded-full transition-all duration-200 bg-[var(--accent-gold)] text-black font-extrabold shadow-sm">LTR</span>
+<span class="rtl-badge px-2.5 py-0.5 rounded-full transition-all duration-200 text-[var(--text-muted)] hover:text-[var(--text-primary)] font-normal">RTL</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Theme Mode</span>
+<button class="theme-toggle p-2 rounded-full border border-[var(--border-color)]" type="button">
+<span class="theme-toggle-icon"></span>
+</button>
+</div>
+<a class="btn-pill-solid w-full text-center" href="contact.html">Get Free Loan Advice</a>
+</div>
+</div>
+</div>
+<!-- ================= HERO BREADCRUMB & BILLING TOGGLE HEADER ================= -->
+<section class="relative pt-16 pb-20 overflow-hidden border-b border-[var(--border-color)] bg-[var(--bg-surface)]">
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--accent-gold),_transparent_50%)]"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+<div class="flex items-center justify-center gap-2 text-xs font-semibold text-[var(--accent-gold)]">
+<a class="hover:underline" href="index.html">Home</a>
+<span>/</span>
+<span class="text-[var(--text-primary)]">Pricing &amp; Advisory Plans</span>
+</div>
+<span class="badge-pill">💎 100% Transparent Fee Guarantee</span>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--text-primary)] tracking-tight">
+        Transparent Advisory Pricing with <span class="gradient-text">Zero Hidden Markups</span>
+</h1>
+<p class="text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+        Compare our advisory tiers below. Standard loan comparisons are 100% free for retail borrowers.
+      </p>
+<!-- Interactive Billing Toggle Switch -->
+<div class="flex items-center justify-center gap-4 pt-6">
+<span class="text-sm font-semibold text-[var(--text-primary)]">Standard Billing</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" id="pricing-billing-toggle" type="checkbox"/>
+<div class="w-14 h-7 bg-[var(--bg-surface-elevated)] border border-[var(--border-color)] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[3px] after:left-[3px] after:bg-[var(--accent-gold)] after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[var(--bg-surface-hover)]"></div>
+</label>
+<span class="text-sm font-semibold text-[var(--text-primary)] flex items-center gap-2">
+<span>Annual Subscription</span>
+<span class="text-[10px] font-extrabold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">SAVE 20%</span>
+</span>
+</div>
+</div>
+</section>
+<!-- ================= 3-TIER PRICING CARDS ================= -->
+<section class="premium-pricing-section">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="premium-pricing-grid" aria-label="FlexiLoan advisory pricing plans">
+      <!-- Standard Advisory -->
+      <article class="premium-plan-card qa-pricing-card">
+        <div class="premium-plan-kicker">
+          <span class="premium-plan-chip">Free Tier</span>
+          <span class="premium-plan-audience">Retail Borrowers</span>
+        </div>
+        <h3>Standard Advisory</h3>
+        <p class="premium-plan-desc">Multi-bank comparison for retail home, personal, and car loans.</p>
+        <div class="premium-plan-price-row">
+          <span class="premium-plan-price">₹0</span>
+          <span class="premium-plan-period">Free forever</span>
+        </div>
+        <div class="premium-plan-divider" aria-hidden="true"></div>
+        <ul class="premium-plan-features">
+          <li><span class="premium-plan-check">✓</span><span>40+ Bank Rate Benchmark Report</span></li>
+          <li><span class="premium-plan-check">✓</span><span>Live EMI Calculation Tool</span></li>
+          <li><span class="premium-plan-check">✓</span><span>Digital Document Checklist</span></li>
+          <li><span class="premium-plan-check">✓</span><span>Standard 48h Processing SLA</span></li>
+        </ul>
+        <div class="premium-plan-cta">
+          <a class="btn-pill-outline" href="calculator.html">Start Free Comparison</a>
+        </div>
+      </article>
+
+      <!-- Premium Rate Match -->
+      <article class="premium-plan-card is-featured qa-pricing-card" aria-label="Most popular plan: Premium Rate Match">
+        <span class="premium-popular-badge">★ Most Popular</span>
+        <div class="premium-plan-kicker">
+          <span class="premium-plan-chip">Rate Match</span>
+          <span class="premium-plan-audience">Refinance &amp; Balance Transfer</span>
+        </div>
+        <h3>Premium Rate Match</h3>
+        <p class="premium-plan-desc">Dedicated senior rate negotiation with accelerated document and bank submission support.</p>
+        <div class="premium-plan-price-row">
+          <span class="premium-plan-price" data-annual-price="₹1,499" data-monthly-price="₹1,999">₹1,999</span>
+          <span class="premium-plan-period">per application</span>
+        </div>
+        <div class="premium-plan-divider" aria-hidden="true"></div>
+        <ul class="premium-plan-features">
+          <li><span class="premium-plan-check">✓</span><span><strong class="text-[var(--text-primary)]">Assigned Senior Rate Negotiator</strong></span></li>
+          <li><span class="premium-plan-check">✓</span><span>100% Money-Back Rate Reduction Guarantee</span></li>
+          <li><span class="premium-plan-check">✓</span><span>Fast-Track 24h SLA Document Audit</span></li>
+          <li><span class="premium-plan-check">✓</span><span>Direct Bank Underwriting Desk Submission</span></li>
+          <li><span class="premium-plan-check">✓</span><span>Lifetime Rate Drop Alert Engine</span></li>
+        </ul>
+        <div class="premium-plan-cta">
+          <a class="btn-pill-solid" href="contact.html?plan=premium">Choose Premium Rate Match</a>
+        </div>
+      </article>
+
+      <!-- Corporate Debt Desk -->
+      <article class="premium-plan-card qa-pricing-card">
+        <div class="premium-plan-kicker">
+          <span class="premium-plan-chip">Commercial</span>
+          <span class="premium-plan-audience">SMBs &amp; Enterprise</span>
+        </div>
+        <h3>Corporate Debt Desk</h3>
+        <p class="premium-plan-desc">Structured commercial debt, equipment financing, and credit lines up to ₹5 Crore+.</p>
+        <div class="premium-plan-price-row">
+          <span class="premium-plan-price" data-annual-price="₹5,999" data-monthly-price="₹7,999">₹7,999</span>
+          <span class="premium-plan-period">custom deal fee</span>
+        </div>
+        <div class="premium-plan-divider" aria-hidden="true"></div>
+        <ul class="premium-plan-features">
+          <li><span class="premium-plan-check">✓</span><span><strong class="text-[var(--text-primary)]">Senior Corporate Debt Strategist</strong></span></li>
+          <li><span class="premium-plan-check">✓</span><span>Multi-Lender Syndication Desk</span></li>
+          <li><span class="premium-plan-check">✓</span><span>Financial Statement Audit &amp; P&amp;L Analysis</span></li>
+          <li><span class="premium-plan-check">✓</span><span>Custom Amortizing Repayment Schedules</span></li>
+          <li><span class="premium-plan-check">✓</span><span>Quarterly Corporate Rate Reviews</span></li>
+        </ul>
+        <div class="premium-plan-cta">
+          <a class="btn-pill-outline" href="contact.html?plan=corporate">Contact Corporate Desk</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- ================= INTERACTIVE REFINANCE SAVINGS CALCULATOR ================= -->
+<section class="py-20 bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="text-center space-y-3">
+<span class="badge-pill">🧮 Interactive Rate Savings Estimator</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)]">Estimate Your Refinancing Savings</h2>
+<p class="text-sm text-[var(--text-muted)] max-w-lg mx-auto">Drag the sliders below to estimate how much money you can save by refinancing through FlexiLoan.</p>
+</div>
+<div class="glass-card p-8 sm:p-10 rounded-3xl border border-[var(--border-color)] space-y-8 bg-[var(--bg-surface-elevated)]">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Slider 1: Loan Amount -->
+<div class="space-y-3">
+<div class="flex justify-between items-center text-xs font-semibold">
+<span class="text-[var(--text-muted)]">Loan Principal Amount</span>
+<span class="text-sm font-bold text-[var(--accent-gold)]" id="price-calc-amount-val">₹25,00,000</span>
+</div>
+<input class="w-full custom-range-slider" id="price-calc-amount-slider" max="10000000" min="250000" step="250000" type="range" value="2500000"/>
+</div>
+<!-- Slider 2: Current Interest Rate -->
+<div class="space-y-3">
+<div class="flex justify-between items-center text-xs font-semibold">
+<span class="text-[var(--text-muted)]">Current Bank Rate %</span>
+<span class="text-sm font-bold text-rose-400" id="price-calc-current-val">10.5%</span>
+</div>
+<input class="w-full custom-range-slider" id="price-calc-current-slider" max="16.0" min="6.0" step="0.1" type="range" value="10.5"/>
+</div>
+<!-- Slider 3: Target Refinance Rate -->
+<div class="space-y-3">
+<div class="flex justify-between items-center text-xs font-semibold">
+<span class="text-[var(--text-muted)]">Target FlexiLoan Rate %</span>
+<span class="text-sm font-bold text-emerald-400" id="price-calc-target-val">8.4%</span>
+</div>
+<input class="w-full custom-range-slider" id="price-calc-target-slider" max="14.0" min="5.0" step="0.1" type="range" value="8.4"/>
+</div>
+</div>
+<!-- Live Savings Output Display -->
+<div class="p-6 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-color)] grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+<div class="space-y-1">
+<span class="text-xs font-semibold text-[var(--text-muted)]">Estimated Monthly Savings</span>
+<div class="text-3xl font-extrabold text-emerald-400" id="price-calc-monthly-savings">₹3,424 / mo</div>
+</div>
+<div class="space-y-1 border-t md:border-t-0 md:border-l border-white/10 pt-4 md:pt-0 md:pl-6">
+<span class="text-xs font-semibold text-[var(--text-muted)]">Estimated 20-Year Lifetime Savings</span>
+<div class="text-3xl font-extrabold text-[var(--accent-gold)]" id="price-calc-lifetime-savings">₹8,21,760 Total</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= TRANSPARENT FEATURE MATRIX TABLE ================= -->
+<section class="py-20 border-b border-[var(--border-color)]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="text-center space-y-2">
+<span class="badge-pill">Feature Breakdown</span>
+<h2 class="text-3xl font-extrabold text-[var(--text-primary)]">Complete Advisory Feature Matrix</h2>
+</div>
+<div class="overflow-x-auto glass-card rounded-2xl p-1 border border-[var(--border-color)]">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="border-b border-[var(--border-color)] bg-[var(--bg-surface-elevated)] text-[var(--accent-gold)] uppercase font-bold tracking-wider">
+<th class="p-4">Advisory Feature</th>
+<th class="p-4 text-center">Standard (₹0)</th>
+<th class="p-4 text-center text-emerald-400 font-extrabold">Premium (₹1,999)</th>
+<th class="p-4 text-center">Corporate (₹7,999)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/10 text-[var(--text-secondary)]">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 font-bold text-[var(--text-primary)]">Multi-Bank Rate Comparison Report</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Included</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Included</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Included</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 font-bold text-[var(--text-primary)]">Interactive EMI Calculator Engine</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Included</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Included</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Included</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 font-bold text-[var(--text-primary)]">Assigned Senior Rate Negotiator</td>
+<td class="p-4 text-center text-white/30">—</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Dedicated Officer</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Senior Strategist</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 font-bold text-[var(--text-primary)]">100% Rate Reduction Guarantee (or Money-Back)</td>
+<td class="p-4 text-center text-white/30">—</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Full Refund</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Full Refund</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 font-bold text-[var(--text-primary)]">Processing SLA Speed</td>
+<td class="p-4 text-center">48 Hours</td>
+<td class="p-4 text-center text-emerald-400 font-bold">24-Hour Priority</td>
+<td class="p-4 text-center text-emerald-400 font-bold">24-Hour Priority</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 font-bold text-[var(--text-primary)]">Pre-Underwriting Audit &amp; Document Verification</td>
+<td class="p-4 text-center text-white/30">Automated</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Full Audit Desk</td>
+<td class="p-4 text-center text-emerald-400 font-bold">✓ Full Audit Desk</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- ================= MONEY BACK GUARANTEE BANNER ================= -->
+<section class="py-16 bg-[var(--bg-surface)] border-b border-[var(--border-color)]">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="glass-card p-8 rounded-3xl border border-emerald-500/30 grid md:grid-cols-12 gap-8 items-center bg-gradient-to-r from-emerald-950/40 via-teal-950/20 to-slate-900 shadow-2xl">
+<div class="md:col-span-7 space-y-4 text-center md:text-left">
+<span class="badge-pill bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">🛡 100% Money-Back Policy</span>
+<h3 class="text-2xl font-bold text-[var(--text-primary)]">Guaranteed Rate Savings or 100% Refund</h3>
+<p class="text-xs text-[var(--text-secondary)] leading-relaxed">If our rate negotiation desk cannot secure a lower interest rate than your existing lender bank offer, your Premium fee is refunded in full immediately with zero questions asked.</p>
+<div class="pt-2">
+<a class="btn-pill-solid inline-block" href="contact.html?plan=premium">Claim Guaranteed Savings →</a>
+</div>
+</div>
+<div class="md:col-span-5 h-48 rounded-2xl overflow-hidden shadow-xl relative group">
+<img alt="Executive Rate Advisory Consultation Desk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/pricing_advisory_desk.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+<span class="text-[10px] font-bold text-white/90">💼 Senior Rate Negotiation Desk</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= PRICING FAQS ACCORDION ================= -->
+<section class="py-20">
+<div class="max-w-4xl mx-auto px-4 space-y-10">
+<div class="text-center space-y-2">
+<span class="badge-pill">Pricing Clarity</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)]">Frequently Asked Questions</h2>
+</div>
+<div class="space-y-4">
+<div class="glass-card p-6 rounded-2xl border border-[var(--border-color)] space-y-2">
+<h4 class="font-bold text-sm text-[var(--text-primary)]">How can the Standard Advisory tier be 100% free for borrowers?</h4>
+<p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+            Lending institutions compensate FlexiLoan for pre-verifying borrower files. This referral commission is regulated and does NOT increase your loan interest rate or add markup charges.
+          </p>
+</div>
+<div class="glass-card p-6 rounded-2xl border border-[var(--border-color)] space-y-2">
+<h4 class="font-bold text-sm text-[var(--text-primary)]">Is the Premium ₹1,999 advisory fee refundable?</h4>
+<p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+            Yes! If our advisory desk fails to secure a lower interest rate offer than your existing lender bank quote, your ₹1,999 fee is 100% refunded immediately.
+          </p>
+</div>
+<div class="glass-card p-6 rounded-2xl border border-[var(--border-color)] space-y-2">
+<h4 class="font-bold text-sm text-[var(--text-primary)]">How long does a rate match negotiation take?</h4>
+<p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+            Standard rate comparisons take under 2 minutes digitally. Premium rate negotiations with partner bank underwriting desks are typically completed within 24 to 48 hours.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= FOOTER ================= -->
+<footer class="bg-[var(--bg-surface-elevated)] border-t border-[var(--border-color)] pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[var(--border-color)]">
+<div class="lg:col-span-4 space-y-5">
+<a class="flex items-center gap-3" href="index.html">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[var(--accent-magenta)] via-[var(--accent-orange)] to-[var(--accent-gold)] flex items-center justify-center font-bold text-white text-lg">₹</div>
+<span class="font-heading font-extrabold text-2xl text-[var(--text-primary)]">Flexi<span class="gradient-text">Loan</span></span>
+</a>
+<p class="text-xs text-[var(--text-muted)] leading-relaxed max-w-sm">
+            A transparent loan advisory helping borrowers compare, calculate, and apply for financing with total confidence.
+          </p>
+<div class="flex items-center gap-2.5 pt-2">
+<a aria-label="Facebook" class="social-icon-btn" href="https://facebook.com" rel="noopener noreferrer" target="_blank" title="Facebook"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a>
+<a aria-label="X / Twitter" class="social-icon-btn" href="https://x.com" rel="noopener noreferrer" target="_blank" title="X / Twitter"><svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+<a aria-label="LinkedIn" class="social-icon-btn" href="https://linkedin.com" rel="noopener noreferrer" target="_blank" title="LinkedIn"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+<a aria-label="Instagram" class="social-icon-btn" href="https://instagram.com" rel="noopener noreferrer" target="_blank" title="Instagram"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></a>
+</div>
+</div>
+<div class="lg:col-span-2 space-y-4">
+<h5 class="font-heading font-bold text-[var(--text-primary)] text-sm uppercase">Explore</h5>
+<ul class="space-y-2.5 text-xs">
+<li><a class="hover:text-[var(--accent-gold)]" href="index.html">Home Landing</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="services.html">Loan Services</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="calculator.html">EMI Calculator</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="about.html">About Us</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2 space-y-4">
+<h5 class="font-heading font-bold text-[var(--text-primary)] text-sm uppercase">Resources</h5>
+<ul class="space-y-2.5 text-xs">
+<li><a class="hover:text-[var(--accent-gold)]" href="documents.html">Documents Required</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="pricing.html">Pricing &amp; Rates</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="blog.html">Financial Blog</a></li>
+<li><a class="hover:text-[var(--accent-gold)]" href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+<div class="lg:col-span-4 space-y-4">
+<h5 class="font-heading font-bold text-[var(--text-primary)] text-sm uppercase">Stay Updated</h5>
+<p class="text-xs text-[var(--text-muted)]">Subscribe to receive rate alerts and capital growth updates.</p>
+<form class="space-y-3" onsubmit="event.preventDefault(); showToast('Subscribed for rate alerts!');">
+<div class="relative">
+<input class="form-input text-xs pr-28 py-3 w-full bg-[var(--bg-surface)] border border-[var(--border-color)] rounded-xl px-3 text-[var(--text-primary)]" placeholder="Enter email..." required="" type="email"/>
+<button class="absolute right-1.5 top-1.5 bottom-1.5 btn-pill-solid text-xs px-4 py-1" type="submit">Subscribe</button>
+</div>
+</form>
+</div>
+</div>
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+<div>© 2026 FlexiLoan Inc. All rights reserved.</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-[var(--accent-gold)] font-medium" href="login.html">👤 Client Login</a>
+<span class="text-white/20">•</span>
+<a class="hover:text-[var(--accent-gold)] font-medium" href="register.html">Register</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script>
+    // Live Refinance Savings Estimator Math Script
+    (function() {
+      const amountSlider = document.getElementById('price-calc-amount-slider');
+      const amountVal = document.getElementById('price-calc-amount-val');
+      const currentSlider = document.getElementById('price-calc-current-slider');
+      const currentVal = document.getElementById('price-calc-current-val');
+      const targetSlider = document.getElementById('price-calc-target-slider');
+      const targetVal = document.getElementById('price-calc-target-val');
+      
+      const monthlySavingsEl = document.getElementById('price-calc-monthly-savings');
+      const lifetimeSavingsEl = document.getElementById('price-calc-lifetime-savings');
+
+      if (!amountSlider || !currentSlider || !targetSlider) return;
+
+      function calcSavings() {
+        const P = parseFloat(amountSlider.value);
+        const r1 = parseFloat(currentSlider.value) / 100 / 12;
+        const r2 = parseFloat(targetSlider.value) / 100 / 12;
+        const n = 240; // 20 years
+
+        const emi1 = (P * r1 * Math.pow(1 + r1, n)) / (Math.pow(1 + r1, n) - 1);
+        const emi2 = (P * r2 * Math.pow(1 + r2, n)) / (Math.pow(1 + r2, n) - 1);
+
+        const monthlyDiff = Math.max(0, emi1 - emi2);
+        const lifetimeDiff = monthlyDiff * n;
+
+        amountVal.textContent = '₹' + P.toLocaleString('en-IN');
+        currentVal.textContent = currentSlider.value + '%';
+        targetVal.textContent = targetSlider.value + '%';
+
+        monthlySavingsEl.textContent = '₹' + Math.round(monthlyDiff).toLocaleString('en-IN') + ' / mo';
+        lifetimeSavingsEl.textContent = '₹' + Math.round(lifetimeDiff).toLocaleString('en-IN') + ' Total';
+      }
+
+      amountSlider.addEventListener('input', calcSavings);
+      currentSlider.addEventListener('input', calcSavings);
+      targetSlider.addEventListener('input', calcSavings);
+      calcSavings();
+    })();
+  </script>
+<!-- Floating Mobile CTA -->
+<a class="mobile-float-cta btn-pill-solid justify-center text-sm font-bold py-3.5 shadow-2xl" href="contact.html">
+    📞 Free Loan Consultation
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<script src="js/final-priority-fixes-v1.js"></script>
+</body>
+</html>
