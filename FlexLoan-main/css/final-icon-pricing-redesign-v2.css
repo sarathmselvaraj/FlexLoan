@@ -1,0 +1,260 @@
+/* ========================================================================
+   FlexiLoan — Premium Process Icons + Pricing Redesign v2
+   Keeps process icons visible in both themes and aligns pricing to the
+   clean three-card model used in the previous project.
+   ======================================================================== */
+
+/* --- Premium process icon tiles: explicit background property is required
+   because a CSS gradient is not a valid background-color value. --- */
+.qa-process-icon {
+  position: relative !important;
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 20px !important;
+  display: grid !important;
+  place-items: center !important;
+  margin-inline: auto !important;
+  background: var(--gradient-accent) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.42) !important;
+  box-shadow:
+    0 14px 34px rgba(201,57,107,.22),
+    0 8px 20px rgba(230,122,62,.20),
+    inset 0 1px 0 rgba(255,255,255,.42) !important;
+  overflow: visible !important;
+  isolation: isolate;
+}
+.qa-process-icon::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,.20);
+  background: linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.02));
+  pointer-events: none;
+  z-index: -1;
+}
+.qa-process-icon svg {
+  width: 29px !important;
+  height: 29px !important;
+  display: block !important;
+  fill: none !important;
+  stroke: #fff !important;
+  color: #fff !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.24));
+}
+.qa-process-card:hover .qa-process-icon {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 18px 40px rgba(201,57,107,.30),
+    0 10px 26px rgba(230,122,62,.26),
+    inset 0 1px 0 rgba(255,255,255,.5) !important;
+}
+[data-theme="light"] .qa-process-icon,
+html:not([data-theme="dark"]) .qa-process-icon {
+  box-shadow:
+    0 14px 32px rgba(230,122,62,.20),
+    0 6px 18px rgba(201,57,107,.15),
+    inset 0 1px 0 rgba(255,255,255,.62) !important;
+}
+[data-theme="dark"] .qa-process-icon {
+  border-color: rgba(255,255,255,.24) !important;
+  box-shadow:
+    0 16px 38px rgba(201,57,107,.28),
+    0 8px 22px rgba(230,122,62,.20),
+    inset 0 1px 0 rgba(255,255,255,.24) !important;
+}
+
+/* --- Premium three-card pricing model --- */
+.premium-pricing-section {
+  padding-block: 5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.premium-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1.4rem;
+  align-items: stretch;
+}
+.premium-plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  padding: 2rem;
+  border-radius: 1.65rem;
+  border: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg-surface) 94%, transparent);
+  box-shadow: 0 16px 44px rgba(20,15,32,.07);
+  overflow: visible;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.premium-plan-card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--accent-gold) 62%, var(--border-color));
+  box-shadow: 0 22px 54px rgba(20,15,32,.13);
+}
+.premium-plan-card.is-featured {
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 22px 58px rgba(230,122,62,.16);
+}
+.premium-popular-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  min-width: 140px;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  background: var(--gradient-accent);
+  color: #fff;
+  text-align: center;
+  font-size: .69rem;
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 24px rgba(230,122,62,.24);
+  white-space: nowrap;
+}
+.premium-plan-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  min-height: 2rem;
+  margin-bottom: 1.15rem;
+}
+.premium-plan-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: .42rem .8rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent-gold) 44%, var(--border-color));
+  background: color-mix(in srgb, var(--accent-gold) 9%, var(--bg-surface));
+  color: var(--accent-gold);
+  font-size: .7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.premium-plan-audience {
+  color: var(--text-muted);
+  font-size: .72rem;
+  font-weight: 650;
+  text-align: right;
+}
+.premium-plan-card h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(1.55rem, 2.15vw, 2rem);
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -.025em;
+}
+.premium-plan-desc {
+  min-height: 3.15rem;
+  margin-top: .65rem;
+  color: var(--text-secondary);
+  font-size: .82rem;
+  line-height: 1.55;
+}
+.premium-plan-price-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin: 1.5rem 0 1.35rem;
+}
+.premium-plan-price {
+  color: var(--text-primary);
+  font-size: clamp(2.7rem, 4vw, 3.55rem);
+  line-height: .92;
+  font-weight: 850;
+  letter-spacing: -.035em;
+  white-space: nowrap;
+}
+.premium-plan-period {
+  color: var(--text-muted);
+  font-size: .72rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.premium-plan-divider {
+  height: 1px;
+  margin-bottom: 1.3rem;
+  background: var(--border-color);
+}
+.premium-plan-features {
+  display: grid;
+  gap: .9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-secondary);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+.premium-plan-features li {
+  display: grid;
+  grid-template-columns: 20px minmax(0,1fr);
+  gap: .65rem;
+  align-items: start;
+}
+.premium-plan-check {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-top: .02rem;
+  border-radius: 999px;
+  background: rgba(16,185,129,.12);
+  color: #10b981;
+  font-size: .72rem;
+  font-weight: 900;
+}
+.premium-plan-cta {
+  margin-top: auto;
+  padding-top: 1.8rem;
+}
+.premium-plan-cta a {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.premium-plan-card.is-featured .premium-plan-cta a {
+  box-shadow: 0 12px 28px rgba(230,122,62,.20);
+}
+[data-theme="dark"] .premium-plan-card {
+  background: color-mix(in srgb, var(--bg-surface) 96%, #000 4%);
+  box-shadow: 0 20px 52px rgba(0,0,0,.22);
+}
+[data-theme="dark"] .premium-plan-card.is-featured {
+  box-shadow: 0 24px 58px rgba(230,122,62,.17);
+}
+[data-theme="light"] .premium-plan-card,
+html:not([data-theme="dark"]) .premium-plan-card {
+  background: rgba(255,255,255,.95);
+}
+
+@media (max-width: 1023px) {
+  .premium-pricing-grid { grid-template-columns: 1fr; max-width: 720px; margin-inline: auto; }
+  .premium-plan-card { padding: 1.7rem; }
+  .premium-plan-card.is-featured { margin-top: .75rem; }
+  .premium-plan-desc { min-height: 0; }
+}
+@media (max-width: 639px) {
+  .qa-process-icon { width: 58px !important; height: 58px !important; border-radius: 18px !important; }
+  .qa-process-icon svg { width: 26px !important; height: 26px !important; }
+  .premium-pricing-section { padding-block: 3.75rem; }
+  .premium-plan-card { padding: 1.35rem; border-radius: 1.35rem; }
+  .premium-plan-kicker { align-items: flex-start; }
+  .premium-plan-audience { font-size: .68rem; }
+  .premium-plan-price { font-size: 2.55rem; }
+}

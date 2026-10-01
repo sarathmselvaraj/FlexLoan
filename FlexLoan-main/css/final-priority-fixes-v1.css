@@ -1,0 +1,354 @@
+/* ========================================================================
+   FlexiLoan — Priority Correction & QA Layer v1
+   Fixes: RTL, card/grid alignment, blog readability, documentation spacing,
+   contact validation UI, mobile trust badges, timeline emphasis.
+   ======================================================================== */
+
+/* ---------- Global safety / readability ---------- */
+html, body { max-width: 100%; }
+body { overflow-x: hidden; }
+
+h1, h2, h3, h4, h5, h6,
+.qa-blog-detail strong {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* Give bold editorial headings enough vertical room; prevents visual overlap. */
+.qa-blog-detail h1,
+.qa-blog-detail h2,
+.qa-blog-detail h3,
+.qa-page-about h1,
+.qa-page-about h2,
+.qa-page-about h3 {
+  line-height: 1.28 !important;
+  letter-spacing: -0.015em !important;
+}
+
+/* ---------- 1. Home: Simple & Transparent Process icons ---------- */
+.qa-process-card { height: 100%; }
+.qa-process-icon {
+  position: relative;
+  color: #fff;
+  overflow: visible;
+}
+.qa-process-icon svg {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+.qa-process-step-number {
+  position: absolute;
+  inset-inline-end: -7px;
+  inset-block-end: -7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--bg-surface-elevated);
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  font-size: 10px;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0,0,0,.24);
+}
+
+/* ---------- 2–4. Contact form field validation ---------- */
+.qa-consultation-form input[aria-invalid="true"],
+.qa-consultation-form select[aria-invalid="true"],
+.qa-consultation-form textarea[aria-invalid="true"],
+#fl-register-form input[aria-invalid="true"] {
+  border-color: #fb7185 !important;
+  box-shadow: 0 0 0 3px rgba(251,113,133,.13) !important;
+}
+.qa-field-error {
+  min-height: 1rem;
+  margin-top: .35rem;
+  color: #fb7185;
+  font-size: .7rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+[data-theme="light"] .qa-field-error { color: #b42342; }
+
+/* ---------- 5. Global Office Network: map intentionally below cards ---------- */
+.qa-global-map-block {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-color);
+  scroll-margin-top: 7rem;
+}
+.qa-global-map-heading { margin-bottom: 1rem; }
+.qa-global-map-heading h3 {
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.qa-global-map-heading p {
+  margin-top: .25rem;
+  font-size: .75rem;
+  color: var(--text-muted);
+}
+.qa-branch-map-btn { min-height: 36px; }
+
+/* ---------- 6. Article author/date/read-time visibility ---------- */
+.qa-article-hero { isolation: isolate; }
+.qa-article-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(to top, rgba(5,7,12,.96) 0%, rgba(5,7,12,.72) 40%, rgba(5,7,12,.22) 78%, rgba(5,7,12,.08) 100%);
+  pointer-events: none;
+}
+.qa-article-hero > img { position: relative; z-index: -1; }
+.qa-article-hero > .absolute { z-index: 2; }
+.qa-article-meta {
+  width: fit-content;
+  max-width: 100%;
+  flex-wrap: wrap;
+  row-gap: .45rem !important;
+  background: rgba(8, 10, 18, .78);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  padding: .45rem .75rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff !important;
+}
+.qa-article-meta span,
+.qa-article-meta strong { color: #fff !important; opacity: 1 !important; }
+[data-theme="light"] .qa-article-meta {
+  background: rgba(17, 20, 31, .88);
+  border-color: rgba(255,255,255,.24);
+}
+
+/* ---------- 7 & 14. Blog numbered question/heading overlap ---------- */
+.qa-article-body { position: relative; }
+.qa-article-block {
+  clear: both;
+  position: relative;
+  margin-block: 2.25rem !important;
+}
+.qa-article-block > h2,
+.qa-article-block > h3 {
+  margin: 0 0 1rem !important;
+  padding-top: .15rem;
+  line-height: 1.34 !important;
+}
+.qa-priority-question-block {
+  padding-block: .35rem;
+  scroll-margin-top: 7rem;
+}
+.qa-article-body strong {
+  line-height: inherit;
+  white-space: normal;
+}
+
+/* ---------- 8. Required Documentation Checklist ---------- */
+.qa-doc-checklist { overflow: visible; }
+.qa-doc-checklist h2,
+.qa-doc-checklist h3 { margin-bottom: 1rem; line-height: 1.3 !important; }
+.qa-doc-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+.qa-doc-line {
+  margin: 0 !important;
+  line-height: 1.55 !important;
+  padding-inline-start: 0;
+}
+.qa-doc-item {
+  display: grid !important;
+  grid-template-columns: 1rem minmax(0,1fr);
+  align-items: start !important;
+  gap: .5rem !important;
+  line-height: 1.55 !important;
+}
+.qa-doc-bullet { margin-top: .08rem; }
+
+/* ---------- 9. Services grid consistent 01/02/03+ alignment ---------- */
+.qa-services-grid { align-items: stretch; }
+.qa-service-card { height: 100%; min-width: 0; }
+.qa-service-card > div:first-child { height: 100%; }
+.qa-service-card-body { min-width: 0; }
+.qa-service-specs { align-self: stretch; }
+
+@media (min-width: 1024px) {
+  .qa-service-card-body {
+    display: grid !important;
+    grid-template-rows: auto minmax(4.1rem, auto) minmax(5.4rem, auto) auto;
+    align-content: start;
+    gap: 1rem;
+  }
+  .qa-service-card-body > * { margin-top: 0 !important; }
+  .qa-service-card-body h3 { line-height: 1.25 !important; margin: 0 !important; }
+  .qa-service-card-body > p { margin: 0 !important; }
+  .qa-service-specs { margin-top: 0 !important; }
+}
+.qa-equal-card-grid { align-items: stretch; }
+.qa-equal-card { height: 100%; }
+
+/* ---------- 10. Pricing grid alignment ---------- */
+.qa-pricing-grid { align-items: stretch; }
+.qa-pricing-card { height: 100%; min-width: 0; }
+.qa-pricing-card > a:last-child { margin-top: auto; }
+.qa-pricing-card ul li { align-items: flex-start !important; }
+.qa-pricing-card ul li > span:first-child { margin-top: .05rem; flex: 0 0 auto; }
+
+@media (min-width: 1024px) {
+  .qa-pricing-card-body {
+    display: grid !important;
+    grid-template-rows: minmax(2.3rem,auto) minmax(5.4rem,auto) minmax(4.4rem,auto) 1fr;
+    gap: 1.35rem;
+    align-content: start;
+  }
+  .qa-pricing-card-body > * { margin-top: 0 !important; margin-bottom: 0 !important; }
+  .qa-pricing-card-body h3 { line-height: 1.2 !important; }
+  .qa-pricing-card-body ul { height: 100%; }
+}
+
+/* ---------- 11. Blog 3-column card alignment ---------- */
+.qa-blog-grid { align-items: stretch; grid-auto-rows: 1fr; }
+.qa-blog-card { height: 100%; min-width: 0; }
+.qa-blog-card-body { min-width: 0; }
+@media (min-width: 1024px) {
+  .qa-blog-card-body {
+    display: grid !important;
+    grid-template-rows: auto minmax(4.6rem, auto) minmax(5.25rem, 1fr) auto;
+    gap: 1rem;
+  }
+  .qa-blog-card-body > * { margin-top: 0 !important; margin-bottom: 0 !important; }
+  .qa-blog-card-body h3 { line-height: 1.3 !important; }
+  .qa-blog-card-body > div:last-child { align-self: end; }
+}
+
+/* ---------- 12. Site-wide RTL corrections ---------- */
+html[dir="rtl"] body { direction: rtl; }
+html[dir="rtl"] .text-left { text-align: right !important; }
+html[dir="rtl"] .text-right { text-align: left !important; }
+html[dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+html[dir="rtl"] .mr-auto { margin-right: 0 !important; margin-left: auto !important; }
+html[dir="rtl"] .nav-dropdown-menu { left: auto !important; right: 0 !important; }
+html[dir="rtl"] #mobile-nav-drawer {
+  right: auto !important;
+  left: 0 !important;
+  border-left: 0 !important;
+  border-right: 1px solid var(--border-color) !important;
+}
+html[dir="rtl"] #mobile-nav-drawer.translate-x-full { transform: translateX(-100%) !important; }
+html[dir="rtl"] #mobile-nav-drawer:not(.translate-x-full) { transform: translateX(0) !important; }
+html[dir="rtl"] .mobile-dropdown-btn,
+html[dir="rtl"] .fl-dropdown-item { text-align: right !important; }
+html[dir="rtl"] .pl-3 { padding-left: 0 !important; padding-right: .75rem !important; }
+html[dir="rtl"] .pl-11 { padding-left: 1rem !important; padding-right: 2.75rem !important; }
+html[dir="rtl"] .pr-28 { padding-right: .75rem !important; padding-left: 7rem !important; }
+html[dir="rtl"] .absolute.left-4 { left: auto !important; right: 1rem !important; }
+html[dir="rtl"] .absolute.right-4 { right: auto !important; left: 1rem !important; }
+html[dir="rtl"] .qa-article-meta,
+html[dir="rtl"] input[type="email"],
+html[dir="rtl"] input[type="tel"] { direction: ltr; text-align: left; }
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4 {
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+}
+html[dir="rtl"] .qa-doc-item { grid-template-columns: 1rem minmax(0,1fr); }
+html[dir="rtl"] .qa-process-step-number { inset-inline-end: -7px; }
+
+/* ---------- 13. About RTL bold heading collision ---------- */
+html[dir="rtl"] .qa-page-about .font-extrabold,
+html[dir="rtl"] .qa-page-about .font-bold {
+  line-height: 1.3 !important;
+}
+html[dir="rtl"] .qa-page-about .gradient-text { display: inline; }
+
+/* ---------- 15. Register confirm password visual state ---------- */
+#fl-register-form .qa-password-match-ok {
+  color: #34d399;
+  font-size: .7rem;
+  margin-top: .35rem;
+  font-weight: 600;
+}
+
+/* ---------- 16. About 360px trust / ISO badge vertical alignment ---------- */
+@media (max-width: 479px) {
+  .qa-about-trust {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: .7rem !important;
+    width: min(100%, 22rem);
+    margin-inline: auto !important;
+    padding-top: 1rem !important;
+  }
+  .qa-trust-item {
+    display: grid !important;
+    grid-template-columns: .6rem minmax(0,1fr);
+    gap: .65rem !important;
+    align-items: start !important;
+    text-align: start;
+    width: 100%;
+  }
+  .qa-trust-item > span:first-child {
+    margin-top: .28rem;
+    width: .5rem !important;
+    height: .5rem !important;
+  }
+}
+
+/* ---------- 17. Corporate Evolution 2018 highlight ---------- */
+.qa-timeline-card { height: 100%; }
+.qa-timeline-featured {
+  border-color: var(--accent-gold) !important;
+  background: linear-gradient(145deg, rgba(242,166,90,.16), var(--bg-surface-elevated)) !important;
+  box-shadow: 0 14px 32px rgba(230,122,62,.16);
+}
+.qa-timeline-featured > span:first-child {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid rgba(242,166,90,.45);
+}
+@media (max-width: 479px) {
+  .qa-corporate-evolution .grid { gap: 1rem !important; }
+  .qa-timeline-card { padding: 1.15rem !important; }
+  .qa-timeline-featured { border-width: 2px !important; }
+}
+
+/* ---------- Generic responsive hardening ---------- */
+@media (max-width: 639px) {
+  .qa-global-map-block .map-hub-btn { width: 100%; justify-content: center; text-align: center; }
+  .qa-article-meta { border-radius: 1rem; align-items: flex-start !important; }
+  .qa-blog-detail h1 { font-size: clamp(1.85rem, 9vw, 2.5rem) !important; }
+  .qa-blog-detail h2 { font-size: clamp(1.35rem, 6vw, 1.75rem) !important; }
+  .qa-doc-checklist { padding: 1.25rem !important; }
+  .qa-pricing-card { padding: 1.35rem !important; }
+}
+
+/* Light mode explicit contrast hardening for muted editorial text */
+[data-theme="light"] .qa-page-blog .text-\[var\(--text-muted\)\],
+[data-theme="light"] .qa-blog-detail .text-\[var\(--text-muted\)\] {
+  color: #686071 !important;
+}
+
+/* Inputs should always show readable value/placeholder in both modes */
+.form-input, .form-select, textarea { color: var(--text-primary) !important; }
+.form-input::placeholder, textarea::placeholder { color: var(--text-muted) !important; opacity: .85; }
+
+/* Final article hero correction: keep image visible and light-mode overlay dark enough. */
+.qa-article-hero > img { position: relative; z-index: 0; }
+.qa-article-hero > .absolute.inset-0 {
+  z-index: 1 !important;
+  background: linear-gradient(to top, rgba(5,7,12,.96), rgba(5,7,12,.58), rgba(5,7,12,.15)) !important;
+}
+.qa-article-hero > .absolute.bottom-0 { z-index: 2 !important; }
