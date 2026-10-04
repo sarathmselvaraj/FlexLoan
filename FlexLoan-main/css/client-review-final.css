@@ -1,0 +1,1117 @@
+
+/* FLEXILOAN — CLIENT REVIEW FINAL CORRECTIONS */
+:root{--qa-radius:12px;--qa-header-control-h:42px}
+
+/* 1 Logo branding: solid brand text, no gradient */
+header .font-heading .gradient-text,
+#mobile-nav-drawer .gradient-text{
+  background:none!important;background-image:none!important;
+  -webkit-background-clip:initial!important;background-clip:initial!important;
+  -webkit-text-fill-color:currentColor!important;color:var(--text-primary)!important
+}
+
+/* Global typography + CTA readability */
+body{font-weight:400}
+h1,h2,h3,h4,h5,h6,.font-heading{font-weight:600!important}
+p,li,label,input,select,textarea{font-weight:400}
+.btn-pill-solid,.btn-pill-secondary,.btn-pill-outline{font-size:15px!important;font-weight:600!important;line-height:1.2!important}
+@media(min-width:768px){
+  h1.text-6xl,h1.lg\:text-6xl{font-size:3.25rem!important}
+  h1.text-5xl,h1.sm\:text-5xl{font-size:3rem}
+  h2.text-4xl,h2.sm\:text-4xl{font-size:2.15rem!important}
+}
+
+/* 2 + 13 Header controls: same height/radius; Login is secondary, Apply/Book is primary */
+header .rtl-toggle,header .theme-toggle,header .qa-header-secondary,header .qa-header-primary{
+  min-height:var(--qa-header-control-h)!important;height:var(--qa-header-control-h)!important;
+  border-radius:var(--qa-radius)!important;display:inline-flex!important;align-items:center!important;justify-content:center!important
+}
+header .theme-toggle{width:var(--qa-header-control-h)!important;padding:0!important}
+header .rtl-toggle{padding:3px 6px!important}
+header .qa-header-secondary{padding:0 15px!important;border:1px solid var(--border-color)!important;background:var(--bg-surface)!important;color:var(--text-primary)!important}
+header .qa-header-primary{padding:0 18px!important;background:var(--accent-gold)!important;color:#111!important;border:1px solid var(--accent-gold)!important}
+
+/* Light header remains white */
+html[data-theme="light"] header.glass-nav{background:rgba(255,255,255,.96)!important;border-bottom:1px solid #e6e7eb!important}
+html[data-theme="light"] header .qa-header-secondary{background:#fff!important;color:#182033!important}
+
+/* 3 Home 2 hero: intentionally distinct editorial / corporate layout */
+.qa-home2-hero{padding-top:5rem!important;padding-bottom:5rem!important}
+.qa-home2-hero .qa-home2-grid{grid-template-columns:minmax(0,5fr) minmax(360px,7fr)!important;gap:3rem!important}
+.qa-home2-hero .qa-home2-visual{min-height:500px!important}
+.qa-home2-hero .qa-home2-visual>div{height:100%!important;border-radius:28px!important}
+.qa-home2-hero .qa-home2-visual img{min-height:500px!important}
+.qa-home2-hero .qa-home2-copy{align-self:center}
+@media(max-width:1023px){
+ .qa-home2-hero .qa-home2-grid{grid-template-columns:1fr!important}
+ .qa-home2-hero .qa-home2-visual,.qa-home2-hero .qa-home2-visual img{min-height:340px!important}
+}
+
+/* 4 Home 1 FAQ bottom breathing room */
+.qa-page-index .qa-home-faq,.qa-page-index [id*="faq"]{padding-bottom:2rem!important}
+.qa-page-index .qa-home-faq p,.qa-page-index [id*="faq"] p{padding-bottom:.45rem}
+
+/* 5 Named section badges/heading groups consistently visible */
+.qa-review-section-heading{position:relative;z-index:2}
+html[data-theme="light"] .badge-pill{color:#6b4b00!important;background:#fff7db!important;border-color:#e9cf75!important}
+html[data-theme="dark"] .badge-pill{color:var(--accent-gold)!important}
+
+/* 6 first Institutional Excellence icon background */
+.qa-institutional-grid>div:first-child>div:first-child{
+ background:rgba(245,158,11,.18)!important;border:1px solid rgba(245,158,11,.34)!important;
+ color:#f59e0b!important;box-shadow:0 8px 24px rgba(245,158,11,.10)!important
+}
+
+/* 7 Home loan destination spacing */
+.qa-page-service-home-loans main>section:first-of-type,
+body:has(a[href="contact.html?service=home"]) section:first-of-type{
+ padding-top:2.25rem!important;padding-bottom:3.5rem!important
+}
+
+/* 8 EMI calculator equal horizontal alignment */
+.qa-page-calculator main>section>.max-w-7xl,
+.qa-page-calculator section>.max-w-7xl{padding-left:1.5rem!important;padding-right:1.5rem!important}
+@media(min-width:640px){.qa-page-calculator main>section>.max-w-7xl,.qa-page-calculator section>.max-w-7xl{padding-left:2rem!important;padding-right:2rem!important}}
+@media(min-width:1024px){.qa-page-calculator main>section>.max-w-7xl,.qa-page-calculator section>.max-w-7xl{padding-left:2.5rem!important;padding-right:2.5rem!important}}
+
+/* 10 Money back light mode */
+html[data-theme="light"] .qa-money-back{
+ background:linear-gradient(135deg,#ecfdf5,#f0fdfa)!important;border-color:#86efac!important;
+ box-shadow:0 18px 45px rgba(16,185,129,.10)!important
+}
+html[data-theme="light"] .qa-money-back h3{color:#12352a!important}
+html[data-theme="light"] .qa-money-back p{color:#47665c!important}
+html[data-theme="light"] .qa-money-back .badge-pill{background:#dcfce7!important;color:#166534!important;border-color:#86efac!important}
+
+/* 11 office cards -> map spacing */
+.qa-global-map-block{margin-top:2.5rem!important;padding-top:.75rem!important}
+
+/* 12 primary / secondary CTA visible in light theme */
+html[data-theme="light"] .btn-pill-solid{background:#f2b544!important;color:#17120a!important;border-color:#f2b544!important}
+html[data-theme="light"] .btn-pill-secondary,html[data-theme="light"] .btn-pill-outline{
+ background:#fff!important;color:#22283a!important;border:1.5px solid #b7bdc9!important
+}
+html[data-theme="light"] .btn-pill-secondary:hover,html[data-theme="light"] .btn-pill-outline:hover{
+ border-color:#d99b23!important;background:#fff8e8!important;color:#6a4600!important
+}
+
+/* Forms */
+.form-input,.form-select,input,select,textarea{min-height:46px}
+textarea{min-height:110px}
+.qa-social-btn{width:100%;min-height:46px;border:1px solid var(--border-color);border-radius:12px;
+ display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:600;
+ background:var(--bg-surface);color:var(--text-primary);transition:.2s}
+.qa-social-btn:hover{border-color:var(--accent-gold);transform:translateY(-1px)}
+.qa-auth-divider{display:flex;align-items:center;gap:12px;color:var(--text-muted);font-size:11px;margin:18px 0}
+.qa-auth-divider:before,.qa-auth-divider:after{content:"";height:1px;background:var(--border-color);flex:1}
+
+/* 360 mobile Client Portal CTA */
+.qa-mobile-client-portal{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;
+ min-height:46px!important;border-radius:12px!important;border:1px solid var(--border-color)!important;background:var(--bg-surface-elevated)!important;
+ color:var(--text-primary)!important;font-weight:600!important;margin-top:8px!important}
+
+/* 1024 navbar: prevent cramped/misaligned desktop nav by keeping tablet hamburger until 1100 */
+@media(min-width:1024px) and (max-width:1100px){
+ header nav.hidden.lg\:flex,header div.hidden.lg\:flex{display:none!important}
+ header #mobile-menu-btn{display:inline-flex!important}
+ .mobile-nav-scope{display:block!important}
+}
+@media(max-width:639px){
+ h1{font-size:2.1rem!important;line-height:1.12!important}
+ h2{font-size:1.75rem!important;line-height:1.18!important}
+ .btn-pill-solid,.btn-pill-secondary,.btn-pill-outline{font-size:14px!important}
+}
+
+
+/* ======================================================================
+   FLEXILOAN — CLIENT REVIEW FINAL QA PASS v2 (2026-10-01)
+   Stronger cross-page header, CTA, section, spacing, light-mode and
+   responsive corrections. Loaded last on every HTML page.
+   ====================================================================== */
+
+/* 1 — Solid wordmark: both halves use one brand-safe solid colour. */
+header a > .font-heading,
+header a > .font-heading span,
+#mobile-nav-drawer .font-heading,
+#mobile-nav-drawer .font-heading span {
+  color: var(--text-primary) !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] header a > .font-heading,
+html[data-theme="light"] header a > .font-heading span,
+html[data-theme="light"] #mobile-nav-drawer .font-heading,
+html[data-theme="light"] #mobile-nav-drawer .font-heading span { color:#192033 !important; }
+
+/* 2, 9, 12, 13 — one header control system + clear primary/secondary CTA. */
+:root { --qa-header-control-h:44px; --qa-header-radius:12px; }
+header .rtl-toggle,
+header .theme-toggle,
+header .qa-header-secondary,
+header .qa-header-primary {
+  height:var(--qa-header-control-h) !important;
+  min-height:var(--qa-header-control-h) !important;
+  border-radius:var(--qa-header-radius) !important;
+  box-sizing:border-box !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+}
+header .theme-toggle { width:var(--qa-header-control-h) !important; min-width:var(--qa-header-control-h) !important; padding:0 !important; }
+header .rtl-toggle { min-width:76px !important; padding:4px 6px !important; }
+header .rtl-toggle > span { min-height:28px; display:inline-flex; align-items:center; justify-content:center; }
+header .qa-header-secondary {
+  padding:0 16px !important;
+  font-size:14px !important;
+  font-weight:650 !important;
+  border:1.5px solid var(--border-color) !important;
+  background:var(--bg-surface) !important;
+  color:var(--text-primary) !important;
+  box-shadow:none !important;
+}
+header .qa-header-primary {
+  padding:0 19px !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  background:#f2b544 !important;
+  border:1.5px solid #f2b544 !important;
+  color:#17120a !important;
+  box-shadow:0 8px 20px rgba(217,155,35,.18) !important;
+}
+header .qa-header-primary svg { width:15px !important; height:15px !important; }
+header .qa-header-secondary:hover { border-color:#d99b23 !important; color:#8a5900 !important; background:#fff8e8 !important; }
+header .qa-header-primary:hover { background:#e6a62f !important; border-color:#e6a62f !important; color:#111 !important; transform:translateY(-1px); }
+html[data-theme="dark"] header .qa-header-secondary { background:#111827 !important; color:#f4f6fb !important; border-color:#394150 !important; }
+html[data-theme="dark"] header .qa-header-secondary:hover { border-color:#f2b544 !important; color:#f6c866 !important; background:#171d29 !important; }
+
+/* Larger, legible global primary/secondary actions without changing compact utility buttons. */
+.btn-pill-solid,.btn-pill-secondary,.btn-pill-outline {
+  min-height:44px !important;
+  padding-top:.72rem !important;
+  padding-bottom:.72rem !important;
+  font-size:15px !important;
+  font-weight:650 !important;
+  line-height:1.2 !important;
+  border-radius:12px !important;
+}
+html[data-theme="light"] .btn-pill-solid {
+  background:#e5a52c !important;
+  border-color:#e5a52c !important;
+  color:#17120a !important;
+  text-shadow:none !important;
+}
+html[data-theme="light"] .btn-pill-secondary,
+html[data-theme="light"] .btn-pill-outline {
+  background:#ffffff !important;
+  border:1.5px solid #9ea7b7 !important;
+  color:#20283a !important;
+  box-shadow:0 4px 12px rgba(24,32,51,.05) !important;
+}
+html[data-theme="light"] .btn-pill-secondary:hover,
+html[data-theme="light"] .btn-pill-outline:hover {
+  background:#fff8e8 !important;
+  border-color:#d99b23 !important;
+  color:#704800 !important;
+}
+
+/* 3 — Home 2 intentionally differs from Home 1: editorial intro + mandate board. */
+.qa-home2-hero { padding:4.5rem 0 5rem !important; }
+.qa-home2-hero .qa-home2-intro { max-width:950px; margin:0 auto 2.4rem; text-align:center; }
+.qa-home2-hero .qa-home2-intro h1 { max-width:900px; margin-left:auto; margin-right:auto; }
+.qa-home2-hero .qa-home2-intro p { max-width:760px; margin-left:auto; margin-right:auto; }
+.qa-home2-hero .qa-home2-mandate-board {
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(330px,.85fr);
+  gap:1.1rem;
+  max-width:1180px;
+  margin:0 auto;
+  padding:1rem;
+  border:1px solid var(--border-color);
+  border-radius:28px;
+  background:color-mix(in srgb,var(--bg-surface-elevated) 92%,transparent);
+  box-shadow:0 24px 60px rgba(0,0,0,.13);
+}
+.qa-home2-hero .qa-home2-image-panel { min-height:390px; position:relative; border-radius:20px; overflow:hidden; }
+.qa-home2-hero .qa-home2-image-panel img { width:100%; height:100%; min-height:390px; object-fit:cover; display:block; }
+.qa-home2-hero .qa-home2-image-panel::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 35%,rgba(5,8,14,.84) 100%); }
+.qa-home2-hero .qa-home2-image-copy { position:absolute; z-index:2; inset:auto 1.3rem 1.25rem; color:#fff; }
+.qa-home2-hero .qa-home2-image-copy * { color:#fff !important; }
+.qa-home2-hero .qa-home2-deal-panel { padding:1.25rem; display:flex; flex-direction:column; justify-content:center; gap:1rem; }
+.qa-home2-hero .qa-home2-deal-list { display:grid; gap:.65rem; }
+.qa-home2-hero .qa-home2-deal-item { display:grid; grid-template-columns:38px minmax(0,1fr); gap:.75rem; align-items:start; padding:.8rem; border:1px solid var(--border-color); border-radius:14px; background:var(--bg-surface); }
+.qa-home2-hero .qa-home2-deal-icon { width:38px; height:38px; display:grid; place-items:center; border-radius:11px; background:rgba(242,181,68,.15); color:#d99b23; font-size:18px; }
+.qa-home2-hero .qa-home2-metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.7rem; }
+.qa-home2-hero .qa-home2-metric { padding:.8rem .55rem; text-align:center; border-radius:13px; background:var(--bg-surface); border:1px solid var(--border-color); }
+.qa-home2-hero .qa-home2-metric strong { display:block; color:var(--text-primary); font-size:1rem; }
+.qa-home2-hero .qa-home2-metric span { display:block; margin-top:.15rem; color:var(--text-muted); font-size:.65rem; line-height:1.3; }
+@media(max-width:900px){
+  .qa-home2-hero { padding:3.2rem 0 3.8rem !important; }
+  .qa-home2-hero .qa-home2-mandate-board { grid-template-columns:1fr; }
+  .qa-home2-hero .qa-home2-image-panel,.qa-home2-hero .qa-home2-image-panel img { min-height:300px; }
+}
+@media(max-width:575.98px){
+  .qa-home2-hero { padding:2.5rem 0 3rem !important; }
+  .qa-home2-hero .qa-home2-intro { margin-bottom:1.5rem; }
+  .qa-home2-hero .qa-home2-intro .flex { width:100%; }
+  .qa-home2-hero .qa-home2-mandate-board { padding:.65rem; border-radius:20px; }
+  .qa-home2-hero .qa-home2-image-panel,.qa-home2-hero .qa-home2-image-panel img { min-height:235px; }
+  .qa-home2-hero .qa-home2-image-copy { inset:auto .9rem .9rem; }
+  .qa-home2-hero .qa-home2-deal-panel { padding:.55rem .2rem .2rem; }
+  .qa-home2-hero .qa-home2-metrics { grid-template-columns:1fr; }
+}
+
+/* 4 — Home 1 FAQ copy gets clear bottom breathing room. */
+.qa-page-index .qa-home-faq { padding-bottom:2.25rem !important; }
+.qa-page-index .qa-home-faq .accordion-content { padding-bottom:.5rem !important; }
+.qa-page-index .qa-home-faq .accordion-content p { padding-bottom:1rem !important; margin-bottom:0 !important; }
+
+/* 5 — recurring section kicker groups stay consistently readable/aligned. */
+.qa-review-section-heading {
+  min-height:32px;
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  padding:.42rem .85rem !important;
+  line-height:1.1 !important;
+  white-space:normal;
+  text-align:center;
+  margin-bottom:.45rem !important;
+}
+.qa-review-section-heading + h2 { margin-top:.45rem !important; line-height:1.18 !important; }
+html[data-theme="light"] .qa-review-section-heading { background:#fff6d8 !important; border:1px solid #dfc56d !important; color:#6b4a00 !important; }
+
+/* 6 — first Institutional Excellence icon: explicit visible premium tile in both modes. */
+.qa-institutional-grid > div:first-child > div:first-child {
+  width:48px !important; height:48px !important;
+  display:flex !important; align-items:center !important; justify-content:center !important;
+  border-radius:13px !important;
+  background:linear-gradient(145deg,#fff2c8,#f7c85f) !important;
+  border:1px solid #dca833 !important;
+  color:#6b4600 !important;
+  box-shadow:0 9px 24px rgba(217,155,35,.23) !important;
+  opacity:1 !important;
+}
+html[data-theme="dark"] .qa-institutional-grid > div:first-child > div:first-child {
+  background:linear-gradient(145deg,#624515,#2f2617) !important;
+  color:#ffd66f !important; border-color:#a97925 !important;
+}
+
+/* 7 — remove excessive destination whitespace on Home Loans. */
+.qa-page-service-home-loans > section:first-of-type { padding-top:2.5rem !important; padding-bottom:3.25rem !important; min-height:0 !important; }
+.qa-page-service-home-loans > section:nth-of-type(2) { padding-top:3.5rem !important; }
+.qa-page-service-home-loans > section:first-of-type .grid { margin-bottom:0 !important; }
+
+/* 8 — EMI calculator uses one predictable horizontal gutter at every section. */
+.qa-page-calculator main,
+.qa-page-calculator > section { width:100%; }
+.qa-page-calculator section > .max-w-7xl,
+.qa-page-calculator section > .max-w-6xl,
+.qa-page-calculator section > .max-w-5xl,
+.qa-page-calculator section > .max-w-4xl {
+  width:min(100%,80rem) !important;
+  margin-left:auto !important; margin-right:auto !important;
+  padding-left:1rem !important; padding-right:1rem !important;
+  box-sizing:border-box;
+}
+@media(min-width:640px){
+  .qa-page-calculator section > .max-w-7xl,
+  .qa-page-calculator section > .max-w-6xl,
+  .qa-page-calculator section > .max-w-5xl,
+  .qa-page-calculator section > .max-w-4xl { padding-left:1.5rem !important; padding-right:1.5rem !important; }
+}
+@media(min-width:1024px){
+  .qa-page-calculator section > .max-w-7xl,
+  .qa-page-calculator section > .max-w-6xl,
+  .qa-page-calculator section > .max-w-5xl,
+  .qa-page-calculator section > .max-w-4xl { padding-left:2rem !important; padding-right:2rem !important; }
+}
+
+/* 10 — whole Money Back card gets a coherent light-mode treatment, not only its copy column. */
+html[data-theme="light"] .qa-money-back-shell {
+  background:linear-gradient(135deg,#f0fbf5 0%,#f7fffb 55%,#eef9f8 100%) !important;
+  border-color:#8bd4ae !important;
+  box-shadow:0 18px 45px rgba(31,125,88,.10) !important;
+}
+html[data-theme="light"] .qa-money-back-shell .qa-money-back { background:transparent !important; border:0 !important; box-shadow:none !important; }
+html[data-theme="light"] .qa-money-back-shell h3 { color:#17372b !important; }
+html[data-theme="light"] .qa-money-back-shell p { color:#4d675d !important; }
+
+/* 11 — visually separate country/office grid and live map. */
+.qa-global-map-block { margin-top:3rem !important; padding-top:2rem !important; border-top:1px solid var(--border-color) !important; }
+.qa-global-map-heading { margin-bottom:1.25rem !important; }
+
+/* Responsive nav: at 1024 the desktop links are too dense, so keep the drawer until 1180px. */
+@media(min-width:1024px) and (max-width:1180px){
+  header nav.hidden.lg\:flex,
+  header > div > div > div.hidden.lg\:flex,
+  header .hidden.lg\:flex { display:none !important; }
+  header #mobile-menu-btn { display:inline-flex !important; align-items:center; justify-content:center; }
+  .mobile-nav-scope { display:block !important; }
+}
+
+/* 360px drawer CTA and controls remain easy to find/use. */
+@media(max-width:575.98px){
+  #mobile-nav-drawer { width:min(88vw,330px) !important; padding:1.1rem !important; }
+  #mobile-nav-drawer .qa-mobile-client-portal { min-height:46px !important; font-size:14px !important; }
+  .btn-pill-solid,.btn-pill-secondary,.btn-pill-outline { font-size:14.5px !important; }
+}
+
+/* ========================================================================== 
+   2026-10-04 — Screenshot alignment + 1024px responsive regression pass
+   ========================================================================== */
+
+/* FAQ: the initial active panel must have real breathing room and fully visible text. */
+.qa-page-index .qa-home-faq .accordion-item {
+  margin:0 0 1rem !important;
+  border-radius:16px !important;
+  overflow:hidden !important;
+}
+.qa-page-index .qa-home-faq .accordion-header {
+  min-height:72px !important;
+  padding:1.25rem 1.65rem !important;
+  gap:1.25rem !important;
+  line-height:1.38 !important;
+  align-items:center !important;
+}
+.qa-page-index .qa-home-faq .accordion-header > span {
+  min-width:0 !important;
+  flex:1 1 auto !important;
+  color:var(--text-primary) !important;
+}
+.qa-page-index .qa-home-faq .accordion-header svg {
+  width:20px !important;
+  height:20px !important;
+  flex:0 0 20px !important;
+}
+.qa-page-index .qa-home-faq .accordion-content {
+  padding:0 1.65rem !important;
+  color:var(--text-secondary) !important;
+}
+.qa-page-index .qa-home-faq .accordion-item.active .accordion-content {
+  padding:0 1.65rem 1.5rem !important;
+}
+.qa-page-index .qa-home-faq .accordion-content p {
+  margin:0 !important;
+  padding:.15rem 0 .35rem !important;
+  color:var(--text-secondary) !important;
+  opacity:1 !important;
+  line-height:1.75 !important;
+}
+html[data-theme="light"] .qa-page-index .qa-home-faq .accordion-content p { color:#514b5d !important; }
+html[data-theme="dark"] .qa-page-index .qa-home-faq .accordion-content p { color:#d6d1df !important; }
+
+/* Home 1: all six loan cards use exactly the same visual rhythm. */
+.qa-loan-products-grid { align-items:stretch !important; }
+.qa-loan-product-card {
+  height:100% !important;
+  display:grid !important;
+  grid-template-rows:1fr auto !important;
+  overflow:hidden !important;
+}
+.qa-loan-product-card > div:first-child {
+  display:grid !important;
+  grid-template-rows:12rem 1fr !important;
+  min-width:0 !important;
+}
+.qa-loan-product-card > div:first-child > .p-6 {
+  display:grid !important;
+  grid-template-rows:auto minmax(4.8rem,auto) 1fr !important;
+  align-content:start !important;
+  gap:.8rem !important;
+}
+.qa-loan-product-card > div:first-child > .p-6 > h3,
+.qa-loan-product-card > div:first-child > .p-6 > p,
+.qa-loan-product-card > div:first-child > .p-6 > ul {
+  margin:0 !important;
+}
+.qa-loan-product-card > div:last-child {
+  padding:0 1.5rem 1.5rem !important;
+  align-self:end !important;
+}
+.qa-loan-product-card .qa-loan-feature {
+  display:grid !important;
+  grid-template-columns:16px minmax(0,1fr) !important;
+  gap:.55rem !important;
+  align-items:start !important;
+  min-height:1.45rem !important;
+  line-height:1.5 !important;
+}
+.qa-loan-product-card .qa-loan-check {
+  width:16px !important;
+  text-align:center !important;
+  color:var(--text-secondary) !important;
+  line-height:1.5 !important;
+}
+.qa-loan-product-card .btn-pill-secondary,
+.qa-loan-product-card .btn-pill-solid {
+  min-height:48px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:.5rem !important;
+  padding:.75rem 1rem !important;
+}
+.qa-loan-product-card .qa-loan-cta-arrow { flex:0 0 auto !important; }
+
+/* Home 2: same starting line for icon, title, paragraph, list and CTA. */
+.qa-institutional-solutions-grid { align-items:stretch !important; }
+.qa-institutional-solution-card {
+  height:100% !important;
+  display:grid !important;
+  grid-template-rows:1fr auto !important;
+  gap:1.25rem !important;
+}
+.qa-institutional-solution-card > div:first-child {
+  display:grid !important;
+  grid-template-rows:56px auto minmax(5.2rem,auto) 1fr !important;
+  gap:1rem !important;
+  align-content:start !important;
+}
+.qa-institutional-solution-card > div:first-child > * { margin:0 !important; }
+.qa-institutional-solution-card > div:first-child > div:first-child {
+  width:56px !important;
+  height:56px !important;
+}
+.qa-institutional-solution-card ul {
+  margin:0 !important;
+  display:grid !important;
+  gap:.65rem !important;
+  align-content:start !important;
+}
+.qa-institutional-solution-card ul li { line-height:1.48 !important; }
+.qa-institutional-solution-card > div:last-child {
+  margin:0 !important;
+  padding-top:1rem !important;
+  align-self:end !important;
+}
+.qa-institutional-solution-card > div:last-child a {
+  min-height:32px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+}
+
+/* About: the six trust pillars align to identical rows so every paragraph starts together. */
+.qa-core-pillars-grid { align-items:stretch !important; }
+.qa-core-pillar-card {
+  height:100% !important;
+  display:grid !important;
+  grid-template-rows:48px minmax(3.15rem,auto) 1fr !important;
+  gap:1rem !important;
+  align-content:start !important;
+}
+.qa-core-pillar-card > * { margin:0 !important; }
+.qa-core-pillar-card > div:first-child { width:48px !important; height:48px !important; }
+.qa-core-pillar-card p {
+  padding-top:.1rem !important;
+  line-height:1.7 !important;
+  color:var(--text-secondary) !important;
+  opacity:1 !important;
+}
+
+/* Home loan documentation: bullet gets one fixed column and the full sentence gets the other. */
+.qa-doc-checklist .qa-doc-item {
+  display:grid !important;
+  grid-template-columns:16px minmax(0,1fr) !important;
+  column-gap:.75rem !important;
+  align-items:start !important;
+  padding:.22rem 0 !important;
+  line-height:1.62 !important;
+}
+.qa-doc-checklist .qa-doc-bullet {
+  display:block !important;
+  width:16px !important;
+  text-align:center !important;
+  margin:.03rem 0 0 !important;
+  line-height:1.62 !important;
+}
+.qa-doc-checklist .qa-doc-copy {
+  display:block !important;
+  min-width:0 !important;
+  color:var(--text-secondary) !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+}
+.qa-doc-checklist .qa-doc-copy strong {
+  display:inline !important;
+  color:var(--text-primary) !important;
+  margin-right:.2rem !important;
+}
+.qa-doc-checklist .glass-card { padding:1.5rem !important; }
+
+/* Desktop card headings: keep the requested one-line presentation where width permits. */
+@media(min-width:1024px){
+  .qa-loan-product-card h3,
+  .qa-institutional-solution-card h3,
+  .qa-core-pillar-card h3 {
+    white-space:nowrap !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+    letter-spacing:-.018em !important;
+  }
+  .qa-loan-product-card h3 { font-size:clamp(1.2rem,1.55vw,1.5rem) !important; line-height:1.25 !important; }
+  .qa-institutional-solution-card h3 { font-size:clamp(1.05rem,1.45vw,1.38rem) !important; line-height:1.25 !important; }
+  .qa-core-pillar-card h3 { font-size:clamp(1.05rem,1.35vw,1.28rem) !important; line-height:1.3 !important; }
+}
+
+/* 1024px: use the drawer intentionally, and override Tailwind's lg:hidden on the OPEN drawer. */
+@media(min-width:1024px) and (max-width:1180px){
+  header .max-w-7xl > .flex { height:72px !important; }
+  header #mobile-menu-btn {
+    display:inline-flex !important;
+    width:44px !important;
+    height:44px !important;
+    padding:0 !important;
+    align-items:center !important;
+    justify-content:center !important;
+    flex:0 0 44px !important;
+  }
+  #mobile-nav-overlay:not(.hidden) { display:block !important; }
+  #mobile-nav-drawer:not(.hidden) {
+    display:flex !important;
+    width:340px !important;
+    max-width:42vw !important;
+  }
+  #mobile-nav-drawer nav {
+    align-items:stretch !important;
+    text-align:left !important;
+  }
+  #mobile-nav-drawer nav > a,
+  #mobile-nav-drawer .mobile-dropdown-btn {
+    width:100% !important;
+    min-height:44px !important;
+    display:flex !important;
+    align-items:center !important;
+    padding:.65rem .75rem !important;
+    border-radius:10px !important;
+  }
+  #mobile-nav-drawer .mobile-dropdown-menu a { min-height:40px !important; display:flex !important; align-items:center !important; }
+  html[dir="rtl"] #mobile-nav-drawer nav { text-align:right !important; }
+}
+
+/* Tablet and phone: natural wrapping, equal padding and no compressed card text. */
+@media(max-width:1023.98px){
+  .qa-loan-product-card > div:first-child { grid-template-rows:auto 1fr !important; }
+  .qa-loan-product-card > div:first-child > .p-6 { grid-template-rows:auto auto 1fr !important; }
+  .qa-institutional-solution-card > div:first-child { grid-template-rows:56px auto auto 1fr !important; }
+  .qa-core-pillar-card { grid-template-rows:48px auto 1fr !important; }
+  .qa-loan-product-card h3,
+  .qa-institutional-solution-card h3,
+  .qa-core-pillar-card h3 { white-space:normal !important; }
+}
+
+@media(max-width:575.98px){
+  .qa-page-index .qa-home-faq .accordion-header { min-height:64px !important; padding:1rem 1.05rem !important; gap:.75rem !important; }
+  .qa-page-index .qa-home-faq .accordion-item.active .accordion-content { padding:0 1.05rem 1.2rem !important; }
+  .qa-page-index .qa-home-faq .accordion-content { padding-inline:1.05rem !important; }
+  .qa-loan-product-card > div:last-child { padding:0 1rem 1rem !important; }
+  .qa-loan-product-card > div:first-child > .p-6 { padding:1rem !important; }
+  .qa-institutional-solution-card { padding:1.25rem !important; }
+  .qa-core-pillar-card { padding:1.25rem !important; }
+  .qa-doc-checklist .glass-card { padding:1.1rem !important; }
+}
+
+/* Tablet pair alignment: preserve straight content starts when grids become two columns. */
+@media(min-width:768px) and (max-width:1023.98px){
+  .qa-loan-product-card > div:first-child > .p-6 {
+    grid-template-rows:minmax(3.3rem,auto) minmax(5.3rem,auto) 1fr !important;
+  }
+  .qa-institutional-solution-card > div:first-child {
+    grid-template-rows:56px minmax(3.25rem,auto) minmax(5.5rem,auto) 1fr !important;
+  }
+  .qa-core-pillar-card {
+    grid-template-rows:48px minmax(3.2rem,auto) 1fr !important;
+  }
+}
+
+/* FAQ guarantee: no clipped answer text even before/while JS computes measured height. */
+.qa-page-index .qa-home-faq .accordion-item.active .accordion-content {
+  max-height:320px !important;
+}
+
+/* ======================================================================
+   Final visual refinement — 2026-10-04
+   Blog row alignment, Home Loan density, Contact map spacing, light-mode
+   readability, premium Most Popular badge, and global contrast polish.
+   ====================================================================== */
+
+/* ---------- Light mode: darker, naked-eye readable text ---------- */
+html[data-theme="light"] {
+  --text-primary:#17131f !important;
+  --text-secondary:#403947 !important;
+  --text-muted:#665e70 !important;
+  --text-hero-sub:#3d3746 !important;
+  --border-color:#dcd5e4 !important;
+  --border-light:#ebe6ef !important;
+}
+html[data-theme="light"] body { color:var(--text-secondary) !important; }
+html[data-theme="light"] p,
+html[data-theme="light"] li,
+html[data-theme="light"] label,
+html[data-theme="light"] td,
+html[data-theme="light"] th,
+html[data-theme="light"] .text-muted { opacity:1 !important; }
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder { color:#746b7c !important; opacity:1 !important; }
+html[data-theme="light"] .glass-card { border-color:#dcd5e4 !important; }
+html[data-theme="light"] .theme-toggle,
+html[data-theme="light"] .rtl-toggle,
+html[data-theme="light"] header button,
+html[data-theme="light"] header a { opacity:1 !important; }
+html[data-theme="light"] .theme-toggle svg,
+html[data-theme="light"] header svg { color:#292331 !important; stroke:currentColor !important; }
+html[data-theme="dark"] .theme-toggle svg,
+html[data-theme="dark"] header svg { color:#f5f0fa !important; stroke:currentColor !important; }
+
+/* Keep secondary buttons clearly different from the primary filled CTA. */
+html[data-theme="light"] .btn-pill-secondary {
+  background:#ffffff !important;
+  color:#211b29 !important;
+  border-color:#a89daf !important;
+  box-shadow:none !important;
+}
+html[data-theme="light"] .btn-pill-secondary:hover {
+  background:#f3eef6 !important;
+  border-color:#74697d !important;
+  color:#17131f !important;
+}
+html[data-theme="dark"] .btn-pill-secondary { color:#f5f1f8 !important; }
+
+/* ---------- Home 1: premium Most Popular badge without card-grid distortion ---------- */
+.qa-loan-product-card { position:relative !important; }
+.qa-loan-product-card > .qa-most-popular-badge {
+  position:absolute !important;
+  z-index:20 !important;
+  top:14px !important;
+  left:18px !important;
+  width:auto !important;
+  height:30px !important;
+  min-height:30px !important;
+  max-height:30px !important;
+  display:inline-flex !important;
+  grid-template-rows:none !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 12px !important;
+  margin:0 !important;
+  border-radius:999px !important;
+  white-space:nowrap !important;
+  font-size:10px !important;
+  line-height:1 !important;
+  letter-spacing:.085em !important;
+  font-weight:800 !important;
+  color:#25150a !important;
+  background:linear-gradient(135deg,#ffd98a 0%,#f2a65a 42%,#e67a3e 100%) !important;
+  border:1px solid rgba(255,236,192,.9) !important;
+  box-shadow:0 8px 22px rgba(230,122,62,.28), inset 0 1px 0 rgba(255,255,255,.65) !important;
+  transform:none !important;
+}
+html[data-theme="dark"] .qa-loan-product-card > .qa-most-popular-badge {
+  color:#1c1209 !important;
+  border-color:rgba(255,220,151,.75) !important;
+  box-shadow:0 8px 24px rgba(242,166,90,.24),0 0 0 1px rgba(242,166,90,.12) !important;
+}
+.qa-loan-product-card > .qa-loan-product-content {
+  display:grid !important;
+  grid-template-rows:12rem 1fr !important;
+  min-width:0 !important;
+}
+.qa-loan-product-card > .qa-loan-product-content > .p-6 {
+  display:grid !important;
+  grid-template-rows:auto minmax(4.8rem,auto) 1fr !important;
+  align-content:start !important;
+  gap:.8rem !important;
+}
+.qa-loan-product-card > .qa-loan-product-footer {
+  padding:0 1.5rem 1.5rem !important;
+  align-self:end !important;
+}
+
+/* ---------- Blog: exactly two-line title row + evenly aligned excerpts ---------- */
+.qa-page-blog .qa-blog-grid { align-items:stretch !important; }
+.qa-page-blog .qa-blog-card { height:100% !important; min-width:0 !important; }
+.qa-page-blog .qa-blog-card-body {
+  display:grid !important;
+  grid-template-rows:1.25rem 3.45rem 5.15rem auto !important;
+  gap:1rem !important;
+  align-content:start !important;
+  flex:1 1 auto !important;
+}
+.qa-page-blog .qa-blog-card .blog-title {
+  margin:0 !important;
+  height:3.45rem !important;
+  min-height:3.45rem !important;
+  font-size:1.12rem !important;
+  line-height:1.42 !important;
+  letter-spacing:-.012em !important;
+  overflow:hidden !important;
+  display:-webkit-box !important;
+  -webkit-line-clamp:2 !important;
+  -webkit-box-orient:vertical !important;
+}
+.qa-page-blog .qa-blog-card .blog-title a { color:inherit !important; }
+.qa-page-blog .qa-blog-card .blog-excerpt {
+  margin:0 !important;
+  height:5.15rem !important;
+  min-height:5.15rem !important;
+  line-height:1.65 !important;
+  overflow:hidden !important;
+  display:-webkit-box !important;
+  -webkit-line-clamp:4 !important;
+  -webkit-box-orient:vertical !important;
+}
+.qa-page-blog .qa-blog-card-body > div:first-child { align-self:start !important; }
+.qa-page-blog .qa-blog-card-body > div:last-child {
+  align-self:end !important;
+  margin:0 !important;
+  min-height:2.45rem !important;
+}
+html[data-theme="light"] .qa-page-blog .qa-blog-card .blog-excerpt { color:#4a4252 !important; }
+html[data-theme="light"] .qa-page-blog .qa-blog-card-body > div:first-child { color:#675f6f !important; }
+html[data-theme="light"] .qa-page-blog .qa-blog-card-body > div:last-child span { color:#251f2d !important; }
+
+/* ---------- Home Loan destination: compact, balanced transition from hero ---------- */
+.qa-page-service-home-loans .qa-home-loan-hero {
+  padding-top:2rem !important;
+  padding-bottom:2.75rem !important;
+  min-height:auto !important;
+}
+.qa-page-service-home-loans .qa-home-loan-hero .grid { gap:1.5rem !important; }
+.qa-page-service-home-loans .qa-home-loan-details {
+  padding-top:2.75rem !important;
+  padding-bottom:3.25rem !important;
+}
+.qa-page-service-home-loans .qa-home-loan-details > div { row-gap:2.75rem !important; }
+.qa-page-service-home-loans .qa-home-loan-feature-grid { align-items:stretch !important; }
+.qa-page-service-home-loans .qa-home-loan-feature-grid > .glass-card {
+  height:100% !important;
+  display:grid !important;
+  grid-template-rows:48px minmax(3.2rem,auto) 1fr !important;
+  align-content:start !important;
+  gap:.75rem !important;
+  padding:1.65rem !important;
+}
+.qa-page-service-home-loans .qa-home-loan-feature-grid h3,
+.qa-page-service-home-loans .qa-home-loan-feature-grid p { margin:0 !important; }
+.qa-page-service-home-loans .qa-doc-checklist .glass-card { height:auto !important; }
+html[data-theme="light"] .qa-page-service-home-loans .qa-doc-copy { color:#453e4d !important; }
+
+/* ---------- Contact: visible separation between country cards and live map ---------- */
+.qa-page-contact .qa-office-grid { margin-bottom:0 !important; }
+.qa-page-contact .qa-global-map-block {
+  margin-top:2.75rem !important;
+  padding-top:1.5rem !important;
+  border-top:1px solid var(--border-color) !important;
+}
+.qa-page-contact .qa-global-map-heading { margin-bottom:1rem !important; }
+.qa-page-contact .qa-global-map-heading h3 {
+  color:var(--text-primary) !important;
+  font-size:1.35rem !important;
+  font-weight:700 !important;
+  line-height:1.25 !important;
+}
+.qa-page-contact .qa-global-map-heading p { color:var(--text-secondary) !important; margin-top:.35rem !important; }
+html[data-theme="light"] .qa-page-contact .qa-office-grid p { color:#4a4252 !important; }
+html[data-theme="light"] .qa-page-contact .map-hub-btn:not(.active) { color:#3f3748 !important; background:#fff !important; }
+
+/* ---------- Global card / icon / CTA visibility sanity ---------- */
+html[data-theme="light"] .badge-pill { color:#6a3515 !important; border-color:#d48a54 !important; background:#fff9f4 !important; }
+html[data-theme="light"] .glass-card svg,
+html[data-theme="light"] .glass-card i { opacity:1 !important; }
+html[data-theme="light"] footer { color:#51495a !important; }
+html[data-theme="dark"] .glass-card p,
+html[data-theme="dark"] .glass-card li { opacity:1 !important; }
+
+/* Responsive refinements for the newly standardized rows. */
+@media (min-width:1024px) and (max-width:1180px) {
+  .qa-page-blog .qa-blog-card .blog-title { font-size:1.02rem !important; height:3.25rem !important; min-height:3.25rem !important; }
+  .qa-page-blog .qa-blog-card-body { grid-template-rows:1.25rem 3.25rem 5.35rem auto !important; }
+}
+@media (max-width:767.98px) {
+  .qa-page-blog .qa-blog-card-body { grid-template-rows:auto auto auto auto !important; }
+  .qa-page-blog .qa-blog-card .blog-title,
+  .qa-page-blog .qa-blog-card .blog-excerpt { height:auto !important; min-height:0 !important; }
+  .qa-page-blog .qa-blog-card .blog-title { -webkit-line-clamp:unset !important; display:block !important; font-size:1.12rem !important; }
+  .qa-page-blog .qa-blog-card .blog-excerpt { -webkit-line-clamp:unset !important; display:block !important; }
+  .qa-page-service-home-loans .qa-home-loan-hero { padding-top:1.35rem !important; padding-bottom:2rem !important; }
+  .qa-page-service-home-loans .qa-home-loan-details { padding-top:2rem !important; padding-bottom:2.5rem !important; }
+  .qa-page-contact .qa-global-map-block { margin-top:2rem !important; padding-top:1.15rem !important; }
+  .qa-loan-product-card > .qa-most-popular-badge { top:12px !important; left:14px !important; height:28px !important; min-height:28px !important; max-height:28px !important; font-size:9px !important; }
+  .qa-loan-product-card > .qa-loan-product-content { grid-template-rows:auto 1fr !important; }
+  .qa-loan-product-card > .qa-loan-product-footer { padding:0 1rem 1rem !important; }
+}
+
+
+/* ============================================================
+   2026-10-04 — final badge + transaction alignment correction
+   ============================================================ */
+/* Featured Personal Loan: badge lives inside the image so it can never
+   distort the card grid or separate its background from its label. */
+.qa-loan-product-card-featured .qa-loan-product-image { position:relative !important; }
+.qa-loan-product-card-featured .qa-most-popular-badge {
+  position:absolute !important;
+  z-index:30 !important;
+  top:14px !important;
+  left:14px !important;
+  right:auto !important;
+  bottom:auto !important;
+  width:max-content !important;
+  max-width:calc(100% - 28px) !important;
+  height:30px !important;
+  min-height:30px !important;
+  max-height:30px !important;
+  display:inline-flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:6px !important;
+  padding:0 12px !important;
+  margin:0 !important;
+  border-radius:999px !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+  font-size:10px !important;
+  line-height:30px !important;
+  letter-spacing:.07em !important;
+  font-weight:800 !important;
+  color:#2d1705 !important;
+  background:linear-gradient(135deg,#ffe09a 0%,#f6b857 48%,#ee8846 100%) !important;
+  border:1px solid rgba(255,244,214,.95) !important;
+  box-shadow:0 7px 20px rgba(177,95,31,.28), inset 0 1px 0 rgba(255,255,255,.72) !important;
+  transform:none !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  text-shadow:none !important;
+}
+.qa-loan-product-card-featured .qa-most-popular-badge span {
+  display:inline-block !important;
+  position:static !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  color:inherit !important;
+  line-height:1 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+html[data-theme="dark"] .qa-loan-product-card-featured .qa-most-popular-badge {
+  color:#241507 !important;
+  border-color:rgba(255,229,175,.86) !important;
+  box-shadow:0 8px 24px rgba(236,139,67,.30),0 0 0 1px rgba(246,184,87,.12) !important;
+}
+@media(max-width:575.98px){
+  .qa-loan-product-card-featured .qa-most-popular-badge {
+    top:12px !important; left:12px !important;
+    height:28px !important; min-height:28px !important; max-height:28px !important;
+    padding:0 10px !important; font-size:9px !important; line-height:28px !important;
+  }
+}
+
+/* Home 2 — Recent Transaction Outcomes: all three cards follow one
+   internal row system so headings occupy two lines and copy begins on
+   the same horizontal baseline across the row. */
+.qa-transaction-outcomes .grid { align-items:stretch !important; }
+.qa-transaction-outcomes .qa-transaction-card {
+  height:100% !important;
+  min-width:0 !important;
+  display:grid !important;
+  grid-template-rows:1fr auto !important;
+}
+.qa-transaction-outcomes .qa-transaction-card-main {
+  padding:2rem !important;
+  display:grid !important;
+  grid-template-rows:42px 76px minmax(96px,1fr) !important;
+  align-content:start !important;
+  gap:14px !important;
+  min-width:0 !important;
+}
+.qa-transaction-outcomes .qa-transaction-card-main > * { margin:0 !important; min-width:0 !important; }
+.qa-transaction-outcomes .qa-transaction-card-main > div:first-child {
+  min-height:42px !important;
+  align-items:center !important;
+  gap:12px !important;
+}
+.qa-transaction-outcomes .qa-transaction-card h3 {
+  margin:0 !important;
+  height:76px !important;
+  min-height:76px !important;
+  max-height:76px !important;
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical !important;
+  -webkit-line-clamp:2 !important;
+  overflow:hidden !important;
+  font-size:clamp(1.35rem,1.75vw,1.65rem) !important;
+  line-height:1.42 !important;
+  font-weight:700 !important;
+  letter-spacing:-.025em !important;
+}
+.qa-transaction-outcomes .qa-transaction-card-main > p {
+  margin:0 !important;
+  min-height:96px !important;
+  color:var(--text-secondary) !important;
+  font-size:.875rem !important;
+  line-height:1.65 !important;
+  align-self:start !important;
+}
+.qa-transaction-outcomes .qa-transaction-card > div:last-child {
+  padding:0 2rem 2rem !important;
+  margin-top:0 !important;
+  align-self:end !important;
+}
+@media(min-width:768px) and (max-width:1180px){
+  .qa-transaction-outcomes .qa-transaction-card-main {
+    padding:1.5rem !important;
+    grid-template-rows:48px 82px minmax(110px,1fr) !important;
+  }
+  .qa-transaction-outcomes .qa-transaction-card h3 {
+    height:82px !important; min-height:82px !important; max-height:82px !important;
+    font-size:1.28rem !important;
+  }
+  .qa-transaction-outcomes .qa-transaction-card-main > p { min-height:110px !important; font-size:.82rem !important; }
+  .qa-transaction-outcomes .qa-transaction-card > div:last-child { padding:0 1.5rem 1.5rem !important; }
+}
+@media(max-width:767.98px){
+  .qa-transaction-outcomes .qa-transaction-card { display:flex !important; flex-direction:column !important; }
+  .qa-transaction-outcomes .qa-transaction-card-main {
+    padding:1.25rem !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:.85rem !important;
+  }
+  .qa-transaction-outcomes .qa-transaction-card-main > div:first-child { min-height:0 !important; flex-wrap:wrap !important; }
+  .qa-transaction-outcomes .qa-transaction-card h3 {
+    height:auto !important; min-height:0 !important; max-height:none !important;
+    display:block !important; overflow:visible !important; font-size:1.3rem !important; line-height:1.32 !important;
+  }
+  .qa-transaction-outcomes .qa-transaction-card-main > p { min-height:0 !important; font-size:.88rem !important; }
+  .qa-transaction-outcomes .qa-transaction-card > div:last-child { padding:0 1.25rem 1.25rem !important; }
+}
+
+/* ============================================================
+   2026-10-04 — 1024px full navbar restoration
+   Requirement: at 1024px the full desktop navbar must remain visible.
+   Mobile/tablet drawer remains for widths below 1024px.
+   ============================================================ */
+@media (min-width:1024px) and (max-width:1180px) {
+  header.glass-nav .max-w-7xl {
+    max-width:100% !important;
+    padding-left:12px !important;
+    padding-right:12px !important;
+  }
+  header.glass-nav .max-w-7xl > .flex {
+    height:68px !important;
+    min-height:68px !important;
+    gap:10px !important;
+  }
+
+  /* Logo stays compact so it never pushes navigation out. */
+  header.glass-nav .max-w-7xl > .flex > a:first-child {
+    gap:7px !important;
+    flex:0 0 auto !important;
+    min-width:0 !important;
+  }
+  header.glass-nav .max-w-7xl > .flex > a:first-child > div {
+    width:34px !important;
+    height:34px !important;
+    border-radius:10px !important;
+  }
+  header.glass-nav .max-w-7xl > .flex > a:first-child > div svg {
+    width:20px !important;
+    height:20px !important;
+  }
+  header.glass-nav .max-w-7xl > .flex > a:first-child > span {
+    font-size:17px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+  }
+
+  /* Force the desktop navigation back on at 1024px. */
+  header.glass-nav .max-w-7xl > .flex > nav {
+    display:flex !important;
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:8px !important;
+    font-size:11px !important;
+    line-height:1.2 !important;
+    white-space:nowrap !important;
+  }
+  header.glass-nav .max-w-7xl > .flex > nav > a,
+  header.glass-nav .max-w-7xl > .flex > nav .nav-dropdown-toggle {
+    font-size:11px !important;
+    padding:8px 2px !important;
+    white-space:nowrap !important;
+  }
+  header.glass-nav .max-w-7xl > .flex > nav .nav-dropdown-toggle {
+    gap:3px !important;
+  }
+  header.glass-nav .max-w-7xl > .flex > nav .nav-dropdown-icon {
+    width:12px !important;
+    height:12px !important;
+  }
+
+  /* Compact right-side controls without sacrificing readability. */
+  header.glass-nav .max-w-7xl > .flex > nav + div {
+    display:flex !important;
+    align-items:center !important;
+    flex:0 0 auto !important;
+    gap:5px !important;
+    min-width:0 !important;
+  }
+  header.glass-nav .rtl-toggle,
+  header.glass-nav .theme-toggle,
+  header.glass-nav .qa-header-secondary,
+  header.glass-nav .qa-header-primary {
+    min-height:38px !important;
+    height:38px !important;
+    border-radius:10px !important;
+  }
+  header.glass-nav .rtl-toggle {
+    padding:2px 4px !important;
+    font-size:8px !important;
+  }
+  header.glass-nav .rtl-toggle .ltr-badge,
+  header.glass-nav .rtl-toggle .rtl-badge {
+    padding:4px 6px !important;
+  }
+  header.glass-nav .theme-toggle {
+    width:38px !important;
+    min-width:38px !important;
+    padding:0 !important;
+  }
+  header.glass-nav .qa-header-secondary {
+    padding:0 10px !important;
+    font-size:11px !important;
+    white-space:nowrap !important;
+  }
+  header.glass-nav .qa-header-primary {
+    padding:0 11px !important;
+    font-size:10.5px !important;
+    gap:5px !important;
+    white-space:nowrap !important;
+  }
+  header.glass-nav .qa-header-primary svg {
+    width:12px !important;
+    height:12px !important;
+  }
+
+  /* Hamburger/drawer must not replace desktop navigation at 1024+. */
+  header.glass-nav #mobile-menu-btn,
+  .mobile-nav-scope,
+  #mobile-nav-overlay,
+  #mobile-nav-drawer {
+    display:none !important;
+  }
+}
+
+/* Below 1024px retain the mobile/tablet drawer behavior. */
+@media (max-width:1023.98px) {
+  header.glass-nav #mobile-menu-btn { display:inline-flex !important; }
+}
